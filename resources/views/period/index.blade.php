@@ -15,7 +15,7 @@
                     <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="#"><i class="ni ni-active-40"></i></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Daftar Judul Baris</li>
+                            <li class="breadcrumb-item active" aria-current="page">Daftar Periode</li>
                         </ol>
                     </nav>
                 </div>
@@ -54,12 +54,12 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-9">
-                            <h3 class="card-title mb-2">Daftar Judul Baris</h3>
+                            <h3 class="card-title mb-2">Daftar Periode</h3>
                         </div>
                         <div class="col-md-3 text-right">
-                            <a href="{{url('/rows/create')}}" class="btn btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Tambah Judul Baris">
+                            <a href="{{url('/periods/create')}}" class="btn btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Tambah Periode">
                                 <span class="btn-inner--icon"><i class="fas fa-plus-circle"></i></span>
-                                <span class="btn-inner--text">Tambah Judul Baris</span>
+                                <span class="btn-inner--text">Tambah Periode</span>
                             </a>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>No</th>
-                                <th>Judul Baris</th>
+                                <th>Periode</th>
                                 <th>Jumlah Item</th>
                                 <th>Aksi</th>
                             </tr>
@@ -107,7 +107,7 @@
         "serverSide": true,
         "processing": true,
         "ajax": {
-            "url": '/rows/data',
+            "url": '/periods/data',
             "type": 'GET'
         },
         "columns": [{
@@ -131,11 +131,11 @@
                 "data": "id",
                 "orderable": false,
                 "render": function(data, type, row) {
-                    return "<a href=\"/rows/" + data + "/edit\" class=\"btn btn-outline-success btn-icon btn-sm\" data-toggle=\"tooltip\" data-original-title=\"Tambah SLS\">" +
+                    return "<a href=\"/periods/" + data + "/edit\" class=\"btn btn-outline-success btn-icon btn-sm\" data-toggle=\"tooltip\" data-original-title=\"Tambah SLS\">" +
                         "<span class=\"btn-inner--icon\"><i class=\"fas fa-edit\"></i></span>" +
                         // "<span class=\"btn-inner--text\">Selesai</span>" +
                         "</a>" +
-                        "<form class=\"d-inline\" id=\"formdelete" + data + "\" name=\"formdelete" + data + "\" onsubmit=\"deleterow('" + data + "','" + row.name + "')\" method=\"POST\" action=\"/rows/" + data + "\">" +
+                        "<form class=\"d-inline\" id=\"formdelete" + data + "\" name=\"formdelete" + data + "\" onsubmit=\"deleterow('" + data + "','" + row.name + "')\" method=\"POST\" action=\"/periods/" + data + "\">" +
                         '@method("delete")' +
                         '@csrf' +
                         "<button class=\"btn btn-icon btn-outline-danger btn-sm\" type=\"submit\" data-toggle=\"tooltip\" data-original-title=\"Hapus Data\">" +
@@ -156,7 +156,7 @@
     function deleterow($id, $name) {
         event.preventDefault();
         Swal.fire({
-            title: 'Yakin Hapus Judul Baris Ini?',
+            title: 'Yakin Hapus Periode Ini?',
             text: $name,
             icon: 'warning',
             showCancelButton: true,

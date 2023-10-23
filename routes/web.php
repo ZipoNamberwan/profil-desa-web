@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\CharacteristicController;
+use App\Http\Controllers\PeriodController;
 use App\Http\Controllers\RowController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +18,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\RowController::class, 'index']);
+Route::get('/', [RowController::class, 'index']);
 
-Route::get('/rows/data', [App\Http\Controllers\RowController::class, 'getData']);
+Route::get('/rows/data', [RowController::class, 'getData']);
 Route::resource('rows', RowController::class);
+
+Route::get('/characteristics/data', [CharacteristicController::class, 'getData']);
+Route::resource('characteristics', CharacteristicController::class);
+
+Route::get('/periods/data', [PeriodController::class, 'getData']);
+Route::resource('periods', PeriodController::class);
+
+Route::get('/units/data', [UnitController::class, 'getData']);
+Route::resource('units', UnitController::class);
+
+Route::get('/subjects/data', [SubjectController::class, 'getData']);
+Route::resource('subjects', SubjectController::class);
 
 
 

@@ -72,6 +72,14 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
+                            <a class="nav-link" href="/subjects">
+                                <i class="fas fa-id-card text-primary text-sm opacity-10"></i>
+                                <span class="nav-link-text">Subject</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
                             <a class="nav-link" href="/info">
                                 <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                                 <span class="nav-link-text">Indikator</span>
@@ -80,7 +88,7 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/info">
+                            <a class="nav-link" href="/characteristics">
                                 <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
                                 <span class="nav-link-text">Karakteristik</span>
                             </a>
@@ -96,7 +104,7 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/info">
+                            <a class="nav-link" href="/periods">
                                 <i class="ni ni-cloud-upload-96 text-danger text-sm opacity-10"></i>
                                 <span class="nav-link-text">Periode</span>
                             </a>
@@ -104,7 +112,7 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/info">
+                            <a class="nav-link" href="/units">
                                 <i class="ni ni-send text-warning text-sm opacity-10"></i>
                                 <span class="nav-link-text">Satuan</span>
                             </a>
