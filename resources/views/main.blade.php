@@ -7,7 +7,7 @@
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  -->
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
     <meta name="author" content="Creative Tim">
-    <title>Pengolahan Regsosek</title>
+    <title>Profil Desa - Backend</title>
     <!-- Favicon -->
     <link rel="icon" href="/assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -54,73 +54,62 @@
             <div class="navbar-inner">
                 <!-- Collapse -->
                 <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-                    @role('user')
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="/">
-                                <i class="fas fa-home text-primary"></i>
-                                <span class="nav-link-text">Daftar Entrian</span>
+                                <i class="fas fa-home text-danger"></i>
+                                <span class="nav-link-text">Home</span>
                             </a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="/attendance">
-                                <i class="ni ni-active-40 text-success"></i>
-                                <span class="nav-link-text">Absensi</span>
+                                <i class="ni ni-chart-pie-35 text-primary text-sm opacity-10"></i>
+                                <span class="nav-link-text">Input Data</span>
                             </a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="/info">
-                                <i class="ni ni-app text-info"></i>
-                                <span class="nav-link-text">Information Center</span>
+                                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                                <span class="nav-link-text">Indikator</span>
                             </a>
                         </li>
                     </ul>
-                    @else
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/mitra">
-                                <i class="ni ni-app text-info"></i>
-                                <span class="nav-link-text">Data Petugas</span>
+                            <a class="nav-link" href="/info">
+                                <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+                                <span class="nav-link-text">Karakteristik</span>
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#navbar1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar1">
-                                <i class="ni ni-active-40 text-blue"></i>
-                                <span class="nav-link-text">Absensi</span>
-                            </a>
-                            <div class="collapse" id="navbar1">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="{{url('/attendance/list')}}" class="nav-link">Daftar Absensi Hari Ini</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{url('/attendance/change')}}" class="nav-link">Ubah Absensi Petugas</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#navbar2" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar2">
-                                <i class="ni ni-app text-orange"></i>
-                                <span class="nav-link-text">Report</span>
-                            </a>
-                            <div class="collapse" id="navbar2">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="{{url('/report/user')}}" class="nav-link">Rekap Entri Dok K Menurut Petugas</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{url('/report/sls')}}" class="nav-link">Status Entri Dok K</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
                     </ul>
-                    @endrole
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/rows">
+                                <i class="ni ni-notification-70 text-info text-sm opacity-10"></i>
+                                <span class="nav-link-text">Judul Baris</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/info">
+                                <i class="ni ni-cloud-upload-96 text-danger text-sm opacity-10"></i>
+                                <span class="nav-link-text">Periode</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/info">
+                                <i class="ni ni-send text-warning text-sm opacity-10"></i>
+                                <span class="nav-link-text">Satuan</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -142,7 +131,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-home"></i></span>
                                     </div>
-                                    <input class="form-control" placeholder="Regsosek" disabled type="text">
+                                    <input class="form-control" placeholder="Backend Profil Desa" disabled type="text">
                                 </div>
                             </div>
                             <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
@@ -167,38 +156,6 @@
                                 </a>
                             </li>
 
-                        </ul>
-                        <ul class="navbar-nav align-items-center ml-auto ml-md-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <div class="media align-items-center">
-                                        <span class="avatar avatar-sm rounded-circle">
-                                            <img alt="" @if(Auth::user()->avatar) src="{{asset('storage/'.Auth::user()->avatar)}}" @else src="" @endif>
-                                        </span>
-                                        <div class="media-body ml-2 d-none d-lg-block">
-                                            <span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name }}</span>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-header noti-title">
-                                        <h6 class="text-overflow m-0">Welcome!</h6>
-                                    </div>
-                                    <a href="#!" class="dropdown-item">
-                                        <i class="ni ni-single-02"></i>
-                                        <span>Profile</span>
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        <i class="ni ni-user-run"></i>
-                                        <span>Logout</span>
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </div>

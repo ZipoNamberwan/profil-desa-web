@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RowController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\RowController::class, 'index']);
+
+Route::get('/rows/data', [App\Http\Controllers\RowController::class, 'getData']);
+Route::resource('rows', RowController::class);
+
+
+
