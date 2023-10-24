@@ -111,7 +111,7 @@
         },
         "columns": [{
                 "responsivePriority": 1,
-                "width": "10%",
+                "width": "2%",
                 "data": "index",
             },
             {

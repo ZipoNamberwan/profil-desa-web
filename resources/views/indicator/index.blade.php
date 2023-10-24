@@ -15,7 +15,7 @@
                     <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="#"><i class="ni ni-active-40"></i></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Daftar Satuan</li>
+                            <li class="breadcrumb-item active" aria-current="page">Daftar Indikator</li>
                         </ol>
                     </nav>
                 </div>
@@ -54,12 +54,12 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-9">
-                            <h3 class="card-title mb-2">Daftar Satuan</h3>
+                            <h3 class="card-title mb-2">Daftar Indikator</h3>
                         </div>
                         <div class="col-md-3 text-right">
-                            <a href="{{url('/units/create')}}" class="btn btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Tambah Satuan">
+                            <a href="{{url('/indicators/create')}}" class="btn btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Tambah Indikator">
                                 <span class="btn-inner--icon"><i class="fas fa-plus-circle"></i></span>
-                                <span class="btn-inner--text">Tambah Satuan</span>
+                                <span class="btn-inner--text">Tambah Indikator</span>
                             </a>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>No</th>
-                                <th>Satuan</th>
+                                <th>Indikator</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -106,7 +106,7 @@
         "serverSide": true,
         "processing": true,
         "ajax": {
-            "url": '/units/data',
+            "url": '/indicators/data',
             "type": 'GET'
         },
         "columns": [{
@@ -125,11 +125,11 @@
                 "data": "id",
                 "orderable": false,
                 "render": function(data, type, row) {
-                    return "<a href=\"/units/" + data + "/edit\" class=\"btn btn-outline-success btn-icon btn-sm\" data-toggle=\"tooltip\" data-original-title=\"Tambah SLS\">" +
+                    return "<a href=\"/indicators/" + data + "/edit\" class=\"btn btn-outline-success btn-icon btn-sm\" data-toggle=\"tooltip\" data-original-title=\"Tambah SLS\">" +
                         "<span class=\"btn-inner--icon\"><i class=\"fas fa-edit\"></i></span>" +
                         // "<span class=\"btn-inner--text\">Selesai</span>" +
                         "</a>" +
-                        "<form class=\"d-inline\" id=\"formdelete" + data + "\" name=\"formdelete" + data + "\" onsubmit=\"deleterow('" + data + "','" + row.name + "')\" method=\"POST\" action=\"/units/" + data + "\">" +
+                        "<form class=\"d-inline\" id=\"formdelete" + data + "\" name=\"formdelete" + data + "\" onsubmit=\"deleterow('" + data + "','" + row.name + "')\" method=\"POST\" action=\"/indicators/" + data + "\">" +
                         '@method("delete")' +
                         '@csrf' +
                         "<button class=\"btn btn-icon btn-outline-danger btn-sm\" type=\"submit\" data-toggle=\"tooltip\" data-original-title=\"Hapus Data\">" +
@@ -150,7 +150,7 @@
     function deleterow($id, $name) {
         event.preventDefault();
         Swal.fire({
-            title: 'Yakin Hapus Satuan Ini?',
+            title: 'Yakin Hapus Indikator Ini?',
             text: $name,
             icon: 'warning',
             showCancelButton: true,

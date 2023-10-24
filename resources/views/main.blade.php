@@ -80,7 +80,7 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/info">
+                            <a class="nav-link" href="/indicators">
                                 <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                                 <span class="nav-link-text">Indikator</span>
                             </a>
