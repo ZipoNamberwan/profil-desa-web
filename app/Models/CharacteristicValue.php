@@ -12,7 +12,7 @@ class CharacteristicValue extends Model
     protected $table = 'characteristic_value';
     public $timestamps = false;
 
-    public function row()
+    public function characteristic()
     {
         return $this->belongsTo(Characteristic::class, 'characteristic_id');
     }

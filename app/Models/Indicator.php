@@ -11,4 +11,19 @@ class Indicator extends Model
     protected $guarded = [];
     protected $table = 'indicator';
     public $timestamps = false;
+
+    public function row()
+    {
+        return $this->belongsTo(Row::class, 'row_id');
+    }
+
+    public function period()
+    {
+        return $this->belongsTo(Period::class, 'period_id');
+    }
+
+    public function characteristic()
+    {
+        return $this->belongsTo(Characteristic::class, 'characteristic_id');
+    }
 }

@@ -11,6 +11,7 @@ use App\Models\Row;
 use App\Models\RowValue;
 use App\Models\Subject;
 use App\Models\Unit;
+use App\Models\Year;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -568,6 +569,34 @@ class MasterSeeder extends Seeder
         ]);
 
         foreach (Indicator::all() as $p) {
+            $p->update([
+                'code' => sprintf("%03d", $p->id),
+            ]);
+        }
+
+        Year::create([
+            'name' => '2020'
+        ]);
+        Year::create([
+            'name' => '2021'
+        ]);
+        Year::create([
+            'name' => '2022'
+        ]);
+        Year::create([
+            'name' => '2023'
+        ]);
+        Year::create([
+            'name' => '2024'
+        ]);
+        Year::create([
+            'name' => '2025'
+        ]);
+        Year::create([
+            'name' => '2026'
+        ]);
+
+        foreach (Year::all() as $p) {
             $p->update([
                 'code' => sprintf("%03d", $p->id),
             ]);

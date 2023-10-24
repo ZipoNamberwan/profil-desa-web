@@ -64,7 +64,7 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/attendance">
+                            <a class="nav-link" href="/data">
                                 <i class="ni ni-chart-pie-35 text-primary text-sm opacity-10"></i>
                                 <span class="nav-link-text">Input Data</span>
                             </a>

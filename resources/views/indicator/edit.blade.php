@@ -40,6 +40,7 @@
                     <!-- Card body -->
                     <div class="card-body">
                         <form id="formupdate" autocomplete="off" method="post" action="/indicators/{{$indicator->id}}" class="needs-validation" enctype="multipart/form-data" novalidate>
+                            @method('PUT')
                             @csrf
                             <div class="row">
                                 <div class="col-md-4 mb-3">

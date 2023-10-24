@@ -100,13 +100,26 @@ class IndicatorController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'subject' => 'required',
+            'row' => 'required',
+            'period' => 'required',
         ]);
 
-        $indicator = Indicator::find($id);
-        $data = ([
+        $array = [
             'name' => $request->name,
-        ]);
-        $indicator->update($data);
+            'subject_id' => $request->subject,
+            'period_id' => $request->period,
+            'row_id' => $request->row,
+        ];
+        if ($request->characteristic != null) {
+            $array['characteristic_id'] = $request->characteristic;
+        }
+        if ($request->unit != null) {
+            $array['unit_id'] = $request->unit;
+        }
+
+        $indicator = Indicator::find($id);
+        $indicator->update($array);
 
         return redirect('/indicators')->with('success-create', 'Indikator telah diubah!');
     }

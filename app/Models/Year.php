@@ -5,15 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PeriodValue extends Model
+class Year extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    protected $table = 'period_value';
+    protected $table = 'year';
     public $timestamps = false;
-
-    public function period()
-    {
-        return $this->belongsTo(Period::class, 'period_id');
-    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CharacteristicController;
+use App\Http\Controllers\DataController;
 use App\Http\Controllers\IndicatorController;
 use App\Http\Controllers\PeriodController;
 use App\Http\Controllers\RowController;
@@ -39,5 +40,8 @@ Route::resource('subjects', SubjectController::class);
 Route::get('/indicators/data', [IndicatorController::class, 'getData']);
 Route::resource('indicators', IndicatorController::class);
 
+Route::get('/data', [DataController::class, 'index']);
+Route::post('/data/download', [DataController::class, 'download']);
+Route::post('/data/save', [DataController::class, 'save']);
 
 

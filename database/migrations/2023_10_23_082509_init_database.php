@@ -73,6 +73,12 @@ return new class extends Migration
             $table->foreignId('row_id')->constrained('row');
             $table->foreignId('unit_id')->nullable()->constrained('unit');
         });
+
+        Schema::create('year', function (Blueprint $table) {
+            $table->id();
+            $table->string('code')->unique()->nullable();
+            $table->string('name');
+        });
     }
 
     /**
