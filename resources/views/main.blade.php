@@ -56,9 +56,9 @@
                 <div class="collapse navbar-collapse" id="sidenav-collapse-main">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">
+                            <a class="nav-link" href="/indicators">
                                 <i class="fas fa-home text-danger"></i>
-                                <span class="nav-link-text">Home</span>
+                                <span class="nav-link-text">Indikator</span>
                             </a>
                         </li>
                     </ul>
@@ -75,14 +75,6 @@
                             <a class="nav-link" href="/subjects">
                                 <i class="fas fa-id-card text-primary text-sm opacity-10"></i>
                                 <span class="nav-link-text">Subject</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/indicators">
-                                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
-                                <span class="nav-link-text">Indikator</span>
                             </a>
                         </li>
                     </ul>
@@ -164,6 +156,38 @@
                                 </a>
                             </li>
 
+                        </ul>
+                        <ul class="navbar-nav align-items-center ml-auto ml-md-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="media align-items-center">
+                                        <span class="avatar avatar-sm rounded-circle">
+                                            <img alt="" @if(Auth::user()->avatar) src="{{asset('storage/'.Auth::user()->avatar)}}" @else src="" @endif>
+                                        </span>
+                                        <div class="media-body ml-2 d-none d-lg-block">
+                                            <span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name }}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header noti-title">
+                                        <h6 class="text-overflow m-0">Welcome!</h6>
+                                    </div>
+                                    <a href="#!" class="dropdown-item">
+                                        <i class="ni ni-single-02"></i>
+                                        <span>Profile</span>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <i class="ni ni-user-run"></i>
+                                        <span>Logout</span>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>

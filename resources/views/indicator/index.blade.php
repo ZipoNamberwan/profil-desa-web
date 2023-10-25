@@ -128,7 +128,11 @@
                     return "<a href=\"/indicators/" + data + "/edit\" class=\"btn btn-outline-success btn-icon btn-sm\" data-toggle=\"tooltip\" data-original-title=\"Tambah SLS\">" +
                         "<span class=\"btn-inner--icon\"><i class=\"fas fa-edit\"></i></span>" +
                         // "<span class=\"btn-inner--text\">Selesai</span>" +
-                        "</a>" +
+                        "</a>" + 
+                        "<a href=\"/indicators/" + data + "\" class=\"btn btn-outline-info btn-icon btn-sm\" data-toggle=\"tooltip\" data-original-title=\"Lihat\">" +
+                        "<span class=\"btn-inner--icon\"><i class=\"fas fa-eye\"></i></span>" +
+                        // "<span class=\"btn-inner--text\">Selesai</span>" +
+                        "</a>"+
                         "<form class=\"d-inline\" id=\"formdelete" + data + "\" name=\"formdelete" + data + "\" onsubmit=\"deleterow('" + data + "','" + row.name + "')\" method=\"POST\" action=\"/indicators/" + data + "\">" +
                         '@method("delete")' +
                         '@csrf' +

@@ -11,8 +11,8 @@ use App\Models\Row;
 use App\Models\RowValue;
 use App\Models\Subject;
 use App\Models\Unit;
+use App\Models\User;
 use App\Models\Year;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class MasterSeeder extends Seeder
@@ -485,16 +485,32 @@ class MasterSeeder extends Seeder
         }
 
         Subject::create([
-            'name' => 'Kependudukan'
+            'name' => 'Kependudukan',
+            'icon' => '/assets/img/project/img/kependudukan.png',
         ]);
         Subject::create([
-            'name' => 'Pendidikan'
+            'name' => 'Pendidikan',
+            'icon' => '/assets/img/project/img/pendidikan.png',
         ]);
         Subject::create([
-            'name' => 'Kesehatan'
+            'name' => 'Kesehatan',
+            'icon' => '/assets/img/project/img/kesehatan.png',
         ]);
         Subject::create([
-            'name' => 'Ekonomi'
+            'name' => 'Ekonomi',
+            'icon' => '/assets/img/project/img/ekonomi.png',
+        ]);
+        Subject::create([
+            'name' => 'Infrastruktur',
+            'icon' => '/assets/img/project/img/infrastruktur.png',
+        ]);
+        Subject::create([
+            'name' => 'Pemerintahan dan Desa',
+            'icon' => '/assets/img/project/img/pemerintahan dan desa.png',
+        ]);
+        Subject::create([
+            'name' => 'Pertanian',
+            'icon' => '/assets/img/project/img/pertanian.png',
         ]);
 
         foreach (Subject::all() as $p) {
@@ -523,7 +539,7 @@ class MasterSeeder extends Seeder
             'name' => 'Jumlah Penduduk Menurut RT RW dan Jenis Kelamin di Desa Pajurangan',
             'row_id' => $area->id,
             'characteristic_id' => $jeniskelamin->id,
-            'period_id' => $tahunan->id,
+            'period_id' => $triwulanan->id,
             'subject_id' => 1,
             'unit_id' => 1,
         ]);
@@ -601,5 +617,11 @@ class MasterSeeder extends Seeder
                 'code' => sprintf("%03d", $p->id),
             ]);
         }
+
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('123456')
+        ]);
     }
 }

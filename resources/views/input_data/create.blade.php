@@ -34,7 +34,17 @@
                 <div class="card">
                     <!-- Card header -->
                     <div class="card-header">
-                        <h3 class="mb-3">Input Data</h3>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <h3 class="card-title mb-2">Input Data</h3>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <a href="{{url('/data/delete')}}" class="btn btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Clear Data">
+                                    <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
+                                    <span class="btn-inner--text">Clear Data</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <!-- Card body -->
                     <div class="card-body">

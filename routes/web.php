@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\CharacteristicController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\IndicatorController;
 use App\Http\Controllers\PeriodController;
 use App\Http\Controllers\RowController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,28 +22,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [RowController::class, 'index']);
+Route::get('/', [FrontendController::class, 'index']);
 
-Route::get('/rows/data', [RowController::class, 'getData']);
-Route::resource('rows', RowController::class);
+Route::middleware('auth')->group(function () {
 
-Route::get('/characteristics/data', [CharacteristicController::class, 'getData']);
-Route::resource('characteristics', CharacteristicController::class);
+    Route::get('/home', [RowController::class, 'index']);
 
-Route::get('/periods/data', [PeriodController::class, 'getData']);
-Route::resource('periods', PeriodController::class);
+    Route::get('/rows/data', [RowController::class, 'getData']);
+    Route::resource('rows', RowController::class);
 
-Route::get('/units/data', [UnitController::class, 'getData']);
-Route::resource('units', UnitController::class);
+    Route::get('/characteristics/data', [CharacteristicController::class, 'getData']);
+    Route::resource('characteristics', CharacteristicController::class);
 
-Route::get('/subjects/data', [SubjectController::class, 'getData']);
-Route::resource('subjects', SubjectController::class);
+    Route::get('/periods/data', [PeriodController::class, 'getData']);
+    Route::resource('periods', PeriodController::class);
 
-Route::get('/indicators/data', [IndicatorController::class, 'getData']);
-Route::resource('indicators', IndicatorController::class);
+    Route::get('/units/data', [UnitController::class, 'getData']);
+    Route::resource('units', UnitController::class);
 
-Route::get('/data', [DataController::class, 'index']);
-Route::post('/data/download', [DataController::class, 'download']);
-Route::post('/data/save', [DataController::class, 'save']);
+    Route::get('/subjects/data', [SubjectController::class, 'getData']);
+    Route::resource('subjects', SubjectController::class);
 
+    Route::get('/indicators/data', [IndicatorController::class, 'getData']);
+    Route::resource('indicators', IndicatorController::class);
 
+    Route::get('/data', [DataController::class, 'index']);
+    Route::post('/data/download', [DataController::class, 'download']);
+    Route::post('/data/save', [DataController::class, 'save']);
+});
+
+require __DIR__ . '/auth.php';

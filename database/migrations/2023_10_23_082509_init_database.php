@@ -79,6 +79,12 @@ return new class extends Migration
             $table->string('code')->unique()->nullable();
             $table->string('name');
         });
+
+        Schema::create('data', function (Blueprint $table) {
+            $table->id();
+            $table->string('code')->unique()->nullable();
+            $table->string('value');
+        });
     }
 
     /**
