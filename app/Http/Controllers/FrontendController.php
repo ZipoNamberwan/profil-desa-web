@@ -18,7 +18,7 @@ class FrontendController extends Controller
         $total_indicator = count(Indicator::all());
         $total_data = count(Data::all());
 
-        return view('frontend/frontend', [
+        return view('frontend/home', [
             'subjects' => $subjects,
             'total_indicator' => $total_indicator,
             'total_data' => $total_data,
@@ -46,7 +46,7 @@ class FrontendController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('frontend/indicator-list');
     }
 
     /**
