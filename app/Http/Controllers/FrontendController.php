@@ -46,7 +46,13 @@ class FrontendController extends Controller
      */
     public function show(string $id)
     {
-        return view('frontend/indicator-list');
+        $subjects = Subject::all();
+        $currentsubject = Subject::find($id);
+        return view('frontend/indicator-list', ['subjects' => $subjects, 'currentsubject' => $currentsubject]);
+    }
+
+    public function showIndicator($id) {
+     return view('frontend/indicator-detail');   
     }
 
     /**

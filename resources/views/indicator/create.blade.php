@@ -42,7 +42,7 @@
                         <form id="formupdate" autocomplete="off" method="post" action="/indicators" class="needs-validation" enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class="row">
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label class="form-control-label">Subjek <span class="text-danger">*</span></label>
                                     <select id="subject" name="subject" class="form-control" data-toggle="select" name="subject" required>
                                         <option value="0" disabled selected> -- Pilih Subjek -- </option>
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label class="form-control-label" for="name">Nama Indikator<span class="text-danger">*</span></label>
                                     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="validationCustom03" value="{{ @old('name') }}">
                                     @error('name')
@@ -71,7 +71,18 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-control-label" for="source">Sumber Data</label>
+                                    <input type="text" name="source" class="form-control @error('source') is-invalid @enderror" id="validationCustom03" value="{{ @old('source') }}">
+                                    @error('source')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
                                     <label class="form-control-label">Karakteristik <span class="text-danger">*</span></label>
                                     <select id="characteristic" name="characteristic" class="form-control" data-toggle="select" name="characteristic" required>
                                         <option value="0" disabled selected> -- Pilih Karakteristik -- </option>
@@ -90,7 +101,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label class="form-control-label">Judul Baris <span class="text-danger">*</span></label>
                                     <select id="row" name="row" class="form-control" data-toggle="select" name="row" required>
                                         <option value="0" disabled selected> -- Pilih Judul Baris -- </option>
@@ -108,7 +119,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label class="form-control-label">Periode <span class="text-danger">*</span></label>
                                     <select id="period" name="period" class="form-control" data-toggle="select" name="period" required>
                                         <option value="0" disabled selected> -- Pilih Periode -- </option>
@@ -126,7 +137,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label class="form-control-label">Satuan <span class="text-danger">*</span></label>
                                     <select id="unit" name="unit" class="form-control" data-toggle="select" name="unit" required>
                                         <option value="0" disabled selected> -- Pilih Satuan -- </option>

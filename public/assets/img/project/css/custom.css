@@ -1019,6 +1019,7 @@ REFERENSI WEB UNTUK OPEN DATA
 
   .dataset-sidenav {
     display: block;
+    z-index: 0;
   }
 
   .dataset-content {

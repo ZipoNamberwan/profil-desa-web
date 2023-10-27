@@ -20,13 +20,14 @@
 @endsection
 
 @section('container')
+
 <div class="pagebar-header is-light position-relative">
     <div class="shape-round"></div>
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 col-md">
                 <h3 class="text-dark font-weight-bold">Dataset</h3>
-                <p class="text-dark mb-3 mb-md-0">Temukan kumpulan data-data mentah berupa tabel yang bisa diolah lebih lanjut di sini. Open Data Jatim menyediakan akses ke beragam koleksi dataset dari seluruh Organisasi Perangkat Daerah di Provinsi Jawa Timur.</p>
+                <p class="text-dark mb-3 mb-md-0">Temukan kumpulan data-data Desa Pajurangan berupa tabel dan grafik. </p>
             </div>
             <div class="col-12 col-md-2">
             </div>
@@ -39,118 +40,20 @@
         <div class="d-flex">
             <div class="dataset-sidenav flex-none">
                 <div class="side-topic-list pt-2">
-                    <h5 class="mb-2 px-3 text-app-secondary" style="margin-left:30px">Topics</h5>
-                    <ul class="list-unstyled m-0">
-                        <li class="side-topic-item ">
-                            <a href="/frontend/dataset?kategori=2" class="fs-7">
+                    <h5 class="mb-2 px-3 text-app-secondary" style="margin-left:30px">Kategori</h5>
+                    <ul class="list-unstyled mr-4">
+                        @foreach($subjects as $subject)
+                        <li class="side-topic-item @if($currentsubject->id == $subject->id) is-active @endif">
+                            <a href="/subject/{{$subject->id}}" class="fs-7">
                                 <figure class="icon m-0 flex-none">
-                                    <img src="/uploads/569348598c140b86587858b18ac8ce37.png" alt="" />
+                                    <img src="{{$subject->icon}}" alt="" />
                                 </figure>
                                 <div class="pl-3 flex-grow-1">
-                                    Infrastruktur
+                                    {{$subject->name}}
                                 </div>
                             </a>
                         </li>
-                        <li class="side-topic-item ">
-                            <a href="/frontend/dataset?kategori=5" class="fs-7">
-                                <figure class="icon m-0 flex-none">
-                                    <img src="/uploads/018fda9c9e335adab2e243926cf8078a.png" alt="" />
-                                </figure>
-                                <div class="pl-3 flex-grow-1">
-                                    Kesehatan
-                                </div>
-                            </a>
-                        </li>
-                        <li class="side-topic-item ">
-                            <a href="/frontend/dataset?kategori=6" class="fs-7">
-                                <figure class="icon m-0 flex-none">
-                                    <img src="/uploads/b13ab2213080b8ac17d77532c6c838ee.png" alt="" />
-                                </figure>
-                                <div class="pl-3 flex-grow-1">
-                                    Lingkungan Hidup
-                                </div>
-                            </a>
-                        </li>
-                        <li class="side-topic-item ">
-                            <a href="/frontend/dataset?kategori=9" class="fs-7">
-                                <figure class="icon m-0 flex-none">
-                                    <img src="/uploads/b29e50e525b065f2ef66021e6398a387.png" alt="" />
-                                </figure>
-                                <div class="pl-3 flex-grow-1">
-                                    Pendidikan
-                                </div>
-                            </a>
-                        </li>
-                        <li class="side-topic-item ">
-                            <a href="/frontend/dataset?kategori=7" class="fs-7">
-                                <figure class="icon m-0 flex-none">
-                                    <img src="/uploads/e7f3a7a7449ee0b370ac18e962d5f2b1.png" alt="" />
-                                </figure>
-                                <div class="pl-3 flex-grow-1">
-                                    Pariwisata &amp; Kebudayaan
-                                </div>
-                            </a>
-                        </li>
-                        <li class="side-topic-item ">
-                            <a href="/frontend/dataset?kategori=10" class="fs-7">
-                                <figure class="icon m-0 flex-none">
-                                    <img src="/uploads/1e11dca00b26d48486645e3e1b5636ca.png" alt="" />
-                                </figure>
-                                <div class="pl-3 flex-grow-1">
-                                    Sosial
-                                </div>
-                            </a>
-                        </li>
-                        <li class="side-topic-item ">
-                            <a href="/frontend/dataset?kategori=4" class="fs-7">
-                                <figure class="icon m-0 flex-none">
-                                    <img src="/uploads/a41b3ba8be7d4dab90c9c57a17189350.png" alt="" />
-                                </figure>
-                                <div class="pl-3 flex-grow-1">
-                                    Kependudukan
-                                </div>
-                            </a>
-                        </li>
-                        <li class="side-topic-item ">
-                            <a href="/frontend/dataset?kategori=3" class="fs-7">
-                                <figure class="icon m-0 flex-none">
-                                    <img src="/uploads/e716510b0cd0c15386ea22409876f579.png" alt="" />
-                                </figure>
-                                <div class="pl-3 flex-grow-1">
-                                    Ketenagakerjaan
-                                </div>
-                            </a>
-                        </li>
-                        <li class="side-topic-item is-active">
-                            <a href="/frontend/dataset?kategori=1" class="fs-7">
-                                <figure class="icon m-0 flex-none">
-                                    <img src="/uploads/b9defc950aef99cc339e4bef7190a7d1.png" alt="" />
-                                </figure>
-                                <div class="pl-3 flex-grow-1">
-                                    Ekonomi
-                                </div>
-                            </a>
-                        </li>
-                        <li class="side-topic-item ">
-                            <a href="/frontend/dataset?kategori=14" class="fs-7">
-                                <figure class="icon m-0 flex-none">
-                                    <img src="/uploads/3ce75323c0584dbb95229f849d2fb9fb.png" alt="" />
-                                </figure>
-                                <div class="pl-3 flex-grow-1">
-                                    Kebencanaan
-                                </div>
-                            </a>
-                        </li>
-                        <li class="side-topic-item ">
-                            <a href="/frontend/dataset?kategori=8" class="fs-7">
-                                <figure class="icon m-0 flex-none">
-                                    <img src="/uploads/963e89d4d2226794c6396b16bdf98133.png" alt="" />
-                                </figure>
-                                <div class="pl-3 flex-grow-1">
-                                    Pemerintahan &amp; Desa
-                                </div>
-                            </a>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -171,365 +74,63 @@
                     </div>
 
                     <div class="col-md-12 mb-2" style="color: #f97316;">
-                        111 Data Ditemukan Pada Topik Ekonomi
+                        @if(count($currentsubject->indicators)>0) {{count($currentsubject->indicators)}} Indikator Ditemukan Pada Kategori @else Belum Ada Indikator pada Kategori @endif {{$currentsubject->name}}
                     </div>
-
                     <div class="mb-4 d-lg-none">
                         <div class="d-flex align-items-center">
-                            <h6 class="col-3 pl-0 pr-2 mb-0 text-muted">Topik :</h6>
+                            <h6 class="col-3 pl-0 pr-2 mb-0 text-muted">Kategori</h6>
                             <div class="flex-grow-1">
                                 <div class="dropdown w-100">
                                     <button class="btn btn-outline-secondary btn-sm w-100" type="button" data-toggle="dropdown" aria-expanded="false">
-                                        Ekonomi <i class="float-right bi-chevron-down"></i>
+                                        {{$currentsubject->name}} <i class="float-right fas fa-arrow-down"></i>
                                     </button>
                                     <div class="dropdown-menu w-100">
-                                        <a class="dropdown-item fs-7 " href="/frontend/dataset?kategori=2">
-                                            Infrastruktur
-
+                                        @foreach($subjects as $subject)
+                                        <a class="dropdown-item fs-7 " href="/subject/{{$subject->id}}">
+                                            {{$subject->name}}
                                         </a>
-                                        <a class="dropdown-item fs-7 " href="/frontend/dataset?kategori=5">
-                                            Kesehatan
-
-                                        </a>
-                                        <a class="dropdown-item fs-7 " href="/frontend/dataset?kategori=6">
-                                            Lingkungan Hidup
-
-                                        </a>
-                                        <a class="dropdown-item fs-7 " href="/frontend/dataset?kategori=9">
-                                            Pendidikan
-
-                                        </a>
-                                        <a class="dropdown-item fs-7 " href="/frontend/dataset?kategori=7">
-                                            Pariwisata &amp; Kebudayaan
-
-                                        </a>
-                                        <a class="dropdown-item fs-7 " href="/frontend/dataset?kategori=10">
-                                            Sosial
-
-                                        </a>
-                                        <a class="dropdown-item fs-7 " href="/frontend/dataset?kategori=4">
-                                            Kependudukan
-
-                                        </a>
-                                        <a class="dropdown-item fs-7 " href="/frontend/dataset?kategori=3">
-                                            Ketenagakerjaan
-
-                                        </a>
-                                        <a class="dropdown-item fs-7 bg-gray" href="/frontend/dataset?kategori=1">
-                                            Ekonomi
-
-                                            <i class="bi-check-circle-fill text-success float-right"></i>
-                                        </a>
-                                        <a class="dropdown-item fs-7 " href="/frontend/dataset?kategori=14">
-                                            Kebencanaan
-
-                                        </a>
-                                        <a class="dropdown-item fs-7 " href="/frontend/dataset?kategori=8">
-                                            Pemerintahan &amp; Desa
-
-                                        </a>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-
                     <div class="dataset-list mb-4">
-                        <a href="
-                                                                                    /frontend/dataset/1633/detail_dataset
-                                                                                " class="dataset-item">
+                        @foreach($currentsubject->indicators as $indicator)
+                        <a href="/indicator/{{$indicator->id}}" class="dataset-item">
                             <figure class="dataset-item__img m-0 flex-none">
-                                <img src=" /uploads/b9defc950aef99cc339e4bef7190a7d1.png " alt="" />
+                                <img src="{{$indicator->subject->icon}}" alt="" />
                             </figure>
                             <div class="flex-grow-1 px-lg-3">
-                                <h6 class="text-app-secondary mb-2">Data Capaian Pengelolaan DBHCHT</h6>
+                                <h6 class="text-app-secondary mb-2">{{$indicator->name}}</h6>
+                                @if($indicator->source != null && $indicator->source != '')
                                 <div class="fs-8 mb-1 text-muted">
-                                    <i class="fa fa-building mr-2"></i>Biro Perekonomian Setda Prov. Jawa Timur
+                                    <i class="fa fa-building mr-2"></i>Sumber: {{$indicator->source}}
                                 </div>
+                                @endif
                                 <div class="fs-8 d-flex">
                                     <div class="mr-4 text-muted">
-                                        <i class="fa fa-file-text mr-2"></i>Ekonomi
+                                        <i class="fa fa-file-text mr-2"></i>{{$indicator->subject->name}}
                                     </div>
                                     <div class="text-muted">
-                                        <i class="fa fa-calendar mr-2"></i>30 March 2023
+                                        <i class="fa fa-calendar mr-2"></i>Terakhir diupdate: {{$indicator->getLastUpdated()}}
                                     </div>
                                 </div>
                                 <div class="fs-8 text-muted d-lg-none mt-2">
-                                    <i class="mr-1 fa fa-eye"></i> 415
+                                    <i class="mr-1 fa fa-eye"></i> {{$indicator->view}}
                                 </div>
                             </div>
                             <div class="col-1 pr-0 pl-2 d-none d-lg-block">
                                 <div class="text-muted">
-                                    <i class="mr-1 fa fa-eye"></i> 415
+                                    <i class="mr-1 fa fa-eye"></i> {{$indicator->view}}
                                 </div>
                             </div>
                         </a>
-                        <a href="
-                                                                                    /frontend/dataset/1568/detail_dataset
-                                                                                " class="dataset-item">
-                            <figure class="dataset-item__img m-0 flex-none">
-                                <img src=" /uploads/b9defc950aef99cc339e4bef7190a7d1.png " alt="" />
-                            </figure>
-                            <div class="flex-grow-1 px-lg-3">
-                                <h6 class="text-app-secondary mb-2">LUAS AREAL PANEN TANAMAN SEMUSIM MENURUT KOMODITI BERDASARKAN KABUPATEN/KOTA</h6>
-                                <div class="fs-8 mb-1 text-muted">
-                                    <i class="fa fa-building mr-2"></i>Dinas Perkebunan Provinsi Jawa Timur
-                                </div>
-                                <div class="fs-8 d-flex">
-                                    <div class="mr-4 text-muted">
-                                        <i class="fa fa-file-text mr-2"></i>Ekonomi
-                                    </div>
-                                    <div class="text-muted">
-                                        <i class="fa fa-calendar mr-2"></i>25 January 2023
-                                    </div>
-                                </div>
-                                <div class="fs-8 text-muted d-lg-none mt-2">
-                                    <i class="mr-1 fa fa-eye"></i> 164
-                                </div>
-                            </div>
-                            <div class="col-1 pr-0 pl-2 d-none d-lg-block">
-                                <div class="text-muted">
-                                    <i class="mr-1 fa fa-eye"></i> 164
-                                </div>
-                            </div>
-                        </a>
-                        <a href="
-                                                                                    /frontend/dataset/1591/detail_dataset
-                                                                                " class="dataset-item">
-                            <figure class="dataset-item__img m-0 flex-none">
-                                <img src=" /uploads/b9defc950aef99cc339e4bef7190a7d1.png " alt="" />
-                            </figure>
-                            <div class="flex-grow-1 px-lg-3">
-                                <h6 class="text-app-secondary mb-2">LUAS AREAL PANEN TANAMAN TAHUNAN MENURUT KOMODITI BERDASARKAN KABUPATEN/KOTA</h6>
-                                <div class="fs-8 mb-1 text-muted">
-                                    <i class="fa fa-building mr-2"></i>Dinas Perkebunan Provinsi Jawa Timur
-                                </div>
-                                <div class="fs-8 d-flex">
-                                    <div class="mr-4 text-muted">
-                                        <i class="fa fa-file-text mr-2"></i>Ekonomi
-                                    </div>
-                                    <div class="text-muted">
-                                        <i class="fa fa-calendar mr-2"></i>25 January 2023
-                                    </div>
-                                </div>
-                                <div class="fs-8 text-muted d-lg-none mt-2">
-                                    <i class="mr-1 fa fa-eye"></i> 80
-                                </div>
-                            </div>
-                            <div class="col-1 pr-0 pl-2 d-none d-lg-block">
-                                <div class="text-muted">
-                                    <i class="mr-1 fa fa-eye"></i> 80
-                                </div>
-                            </div>
-                        </a>
-                        <a href="
-                                                                                    /frontend/dataset/1567/detail_dataset
-                                                                                " class="dataset-item">
-                            <figure class="dataset-item__img m-0 flex-none">
-                                <img src=" /uploads/b9defc950aef99cc339e4bef7190a7d1.png " alt="" />
-                            </figure>
-                            <div class="flex-grow-1 px-lg-3">
-                                <h6 class="text-app-secondary mb-2">JUMLAH LUAS AREAL TANAMAN TAHUNANMENURUT KOMODITI BERDASARKAN KABUPATEN/KOTA</h6>
-                                <div class="fs-8 mb-1 text-muted">
-                                    <i class="fa fa-building mr-2"></i>Dinas Perkebunan Provinsi Jawa Timur
-                                </div>
-                                <div class="fs-8 d-flex">
-                                    <div class="mr-4 text-muted">
-                                        <i class="fa fa-file-text mr-2"></i>Ekonomi
-                                    </div>
-                                    <div class="text-muted">
-                                        <i class="fa fa-calendar mr-2"></i>25 January 2023
-                                    </div>
-                                </div>
-                                <div class="fs-8 text-muted d-lg-none mt-2">
-                                    <i class="mr-1 fa fa-eye"></i> 86
-                                </div>
-                            </div>
-                            <div class="col-1 pr-0 pl-2 d-none d-lg-block">
-                                <div class="text-muted">
-                                    <i class="mr-1 fa fa-eye"></i> 86
-                                </div>
-                            </div>
-                        </a>
-                        <a href="
-                                                                                    /frontend/dataset/1566/detail_dataset
-                                                                                " class="dataset-item">
-                            <figure class="dataset-item__img m-0 flex-none">
-                                <img src=" /uploads/b9defc950aef99cc339e4bef7190a7d1.png " alt="" />
-                            </figure>
-                            <div class="flex-grow-1 px-lg-3">
-                                <h6 class="text-app-secondary mb-2">JUMLAH LUAS AREAL TANAMAN SEMUSIM MENURUT KOMODITI BERDASARKAN KABUPATEN/KOTA</h6>
-                                <div class="fs-8 mb-1 text-muted">
-                                    <i class="fa fa-building mr-2"></i>Dinas Perkebunan Provinsi Jawa Timur
-                                </div>
-                                <div class="fs-8 d-flex">
-                                    <div class="mr-4 text-muted">
-                                        <i class="fa fa-file-text mr-2"></i>Ekonomi
-                                    </div>
-                                    <div class="text-muted">
-                                        <i class="fa fa-calendar mr-2"></i>06 September 2022
-                                    </div>
-                                </div>
-                                <div class="fs-8 text-muted d-lg-none mt-2">
-                                    <i class="mr-1 fa fa-eye"></i> 55
-                                </div>
-                            </div>
-                            <div class="col-1 pr-0 pl-2 d-none d-lg-block">
-                                <div class="text-muted">
-                                    <i class="mr-1 fa fa-eye"></i> 55
-                                </div>
-                            </div>
-                        </a>
-                        <a href="
-                                                                                    /frontend/dataset/1684/detail_dataset
-                                                                                " class="dataset-item">
-                            <figure class="dataset-item__img m-0 flex-none">
-                                <img src=" /uploads/b9defc950aef99cc339e4bef7190a7d1.png " alt="" />
-                            </figure>
-                            <div class="flex-grow-1 px-lg-3">
-                                <h6 class="text-app-secondary mb-2">Nilai Realisasi Investasi PMA Menurut Bidang Usaha per Kab/Kota</h6>
-                                <div class="fs-8 mb-1 text-muted">
-                                    <i class="fa fa-building mr-2"></i>Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu Provinsi Jawa Timur
-                                </div>
-                                <div class="fs-8 d-flex">
-                                    <div class="mr-4 text-muted">
-                                        <i class="fa fa-file-text mr-2"></i>Ekonomi
-                                    </div>
-                                    <div class="text-muted">
-                                        <i class="fa fa-calendar mr-2"></i>29 June 2022
-                                    </div>
-                                </div>
-                                <div class="fs-8 text-muted d-lg-none mt-2">
-                                    <i class="mr-1 fa fa-eye"></i> 81
-                                </div>
-                            </div>
-                            <div class="col-1 pr-0 pl-2 d-none d-lg-block">
-                                <div class="text-muted">
-                                    <i class="mr-1 fa fa-eye"></i> 81
-                                </div>
-                            </div>
-                        </a>
-                        <a href="
-                                                                                    /frontend/dataset/1683/detail_dataset
-                                                                                " class="dataset-item">
-                            <figure class="dataset-item__img m-0 flex-none">
-                                <img src=" /uploads/b9defc950aef99cc339e4bef7190a7d1.png " alt="" />
-                            </figure>
-                            <div class="flex-grow-1 px-lg-3">
-                                <h6 class="text-app-secondary mb-2">Nilai modal usaha atas izin usaha mikro menurut sektor</h6>
-                                <div class="fs-8 mb-1 text-muted">
-                                    <i class="fa fa-building mr-2"></i>Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu Provinsi Jawa Timur
-                                </div>
-                                <div class="fs-8 d-flex">
-                                    <div class="mr-4 text-muted">
-                                        <i class="fa fa-file-text mr-2"></i>Ekonomi
-                                    </div>
-                                    <div class="text-muted">
-                                        <i class="fa fa-calendar mr-2"></i>29 June 2022
-                                    </div>
-                                </div>
-                                <div class="fs-8 text-muted d-lg-none mt-2">
-                                    <i class="mr-1 fa fa-eye"></i> 72
-                                </div>
-                            </div>
-                            <div class="col-1 pr-0 pl-2 d-none d-lg-block">
-                                <div class="text-muted">
-                                    <i class="mr-1 fa fa-eye"></i> 72
-                                </div>
-                            </div>
-                        </a>
-                        <a href="
-                                                                                    /frontend/dataset/1682/detail_dataset
-                                                                                " class="dataset-item">
-                            <figure class="dataset-item__img m-0 flex-none">
-                                <img src=" /uploads/b9defc950aef99cc339e4bef7190a7d1.png " alt="" />
-                            </figure>
-                            <div class="flex-grow-1 px-lg-3">
-                                <h6 class="text-app-secondary mb-2">Nilai modal usaha atas izin usaha kecil menurut sektor</h6>
-                                <div class="fs-8 mb-1 text-muted">
-                                    <i class="fa fa-building mr-2"></i>Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu Provinsi Jawa Timur
-                                </div>
-                                <div class="fs-8 d-flex">
-                                    <div class="mr-4 text-muted">
-                                        <i class="fa fa-file-text mr-2"></i>Ekonomi
-                                    </div>
-                                    <div class="text-muted">
-                                        <i class="fa fa-calendar mr-2"></i>29 June 2022
-                                    </div>
-                                </div>
-                                <div class="fs-8 text-muted d-lg-none mt-2">
-                                    <i class="mr-1 fa fa-eye"></i> 58
-                                </div>
-                            </div>
-                            <div class="col-1 pr-0 pl-2 d-none d-lg-block">
-                                <div class="text-muted">
-                                    <i class="mr-1 fa fa-eye"></i> 58
-                                </div>
-                            </div>
-                        </a>
-                        <a href="
-                                                                                    /frontend/dataset/1681/detail_dataset
-                                                                                " class="dataset-item">
-                            <figure class="dataset-item__img m-0 flex-none">
-                                <img src=" /uploads/b9defc950aef99cc339e4bef7190a7d1.png " alt="" />
-                            </figure>
-                            <div class="flex-grow-1 px-lg-3">
-                                <h6 class="text-app-secondary mb-2">Nilai Realisasi Investasi PMDN Menurut Bidang Usaha per Kab/Kota</h6>
-                                <div class="fs-8 mb-1 text-muted">
-                                    <i class="fa fa-building mr-2"></i>Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu Provinsi Jawa Timur
-                                </div>
-                                <div class="fs-8 d-flex">
-                                    <div class="mr-4 text-muted">
-                                        <i class="fa fa-file-text mr-2"></i>Ekonomi
-                                    </div>
-                                    <div class="text-muted">
-                                        <i class="fa fa-calendar mr-2"></i>29 June 2022
-                                    </div>
-                                </div>
-                                <div class="fs-8 text-muted d-lg-none mt-2">
-                                    <i class="mr-1 fa fa-eye"></i> 87
-                                </div>
-                            </div>
-                            <div class="col-1 pr-0 pl-2 d-none d-lg-block">
-                                <div class="text-muted">
-                                    <i class="mr-1 fa fa-eye"></i> 87
-                                </div>
-                            </div>
-                        </a>
-                        <a href="
-                                                                                    /frontend/dataset/1314/detail_dataset
-                                                                                " class="dataset-item">
-                            <figure class="dataset-item__img m-0 flex-none">
-                                <img src=" /uploads/b9defc950aef99cc339e4bef7190a7d1.png " alt="" />
-                            </figure>
-                            <div class="flex-grow-1 px-lg-3">
-                                <h6 class="text-app-secondary mb-2">Jumlah Penerimaan PAD Menurut UPT PPD Bapenda</h6>
-                                <div class="fs-8 mb-1 text-muted">
-                                    <i class="fa fa-building mr-2"></i>Badan Pendapatan Daerah Provinsi Jawa Timur
-                                </div>
-                                <div class="fs-8 d-flex">
-                                    <div class="mr-4 text-muted">
-                                        <i class="fa fa-file-text mr-2"></i>Ekonomi
-                                    </div>
-                                    <div class="text-muted">
-                                        <i class="fa fa-calendar mr-2"></i>29 June 2022
-                                    </div>
-                                </div>
-                                <div class="fs-8 text-muted d-lg-none mt-2">
-                                    <i class="mr-1 fa fa-eye"></i> 577
-                                </div>
-                            </div>
-                            <div class="col-1 pr-0 pl-2 d-none d-lg-block">
-                                <div class="text-muted">
-                                    <i class="mr-1 fa fa-eye"></i> 577
-                                </div>
-                            </div>
-                        </a>
+                        @endforeach
                     </div>
 
-                    <div class="p-3" style="background: none!important; display: grid; align-self: center">
-
+                    <!-- <div class="p-3" style="background: none!important; display: grid; align-self: center">
                         <style>
                             .page-link {
                                 color: #74abad;
@@ -577,7 +178,7 @@
                             </nav>
                         </div>
 
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

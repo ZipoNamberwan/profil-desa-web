@@ -19,6 +19,10 @@
 <script src="/assets/img/project/css/jquery.min.js"></script>
 @endsection
 
+@section('nav-bar-bg')
+is-transparent
+@endsection
+    
 @section('container')
 <section class="home-hero position-relative d-flex align-items-center">
     <div class="shape-round"></div>
@@ -56,7 +60,7 @@
             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 mx-n2 justify-content-center">
                 @foreach($subjects as $subject)
                 <div class="col px-2">
-                    <a href="/indicator/{{$subject->id}}" class="box-topic">
+                    <a href="/subject/{{$subject->id}}" class="box-topic">
                         <figure class="box-topic__img flex-none m-0 mb-2">
                             <img src="{{$subject->icon}}" alt="" />
                         </figure>

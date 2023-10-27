@@ -18,13 +18,13 @@
 
 <body>
 
-    <header class="header-top is-transparent">
+    <header class="header-top @yield('nav-bar-bg')">
         <div class="main-header">
             <div class="container">
                 <nav class="navbar navbar-expand-lg is-customized"> <!-- bg-dark -->
-                    <a class="navbar-brand" href="/frontend/homepage">
-                        <img class="logo-header" src="/brand/open-data-logo-text1.png" alt="img-brand-logo" />
-                        <img class="logo-header-light" src="/brand/open-data-logo-text-light1.png" alt="img-brand-logo" />
+                    <a class="navbar-brand" href="/">
+                        <img class="logo-header" src="/assets/img/project/img/desacantikbg.png" alt="img-brand-logo" />
+                        <img class="logo-header-light" src="/assets/img/project/img/desacantikbg.png" alt="img-brand-logo" />
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-bars unopen"></i>
@@ -97,7 +97,7 @@
                                 <h6 class="text-light mb-3">Kolaborasi</h6>
                                 <img src="/assets/img/project/img/satudataindonesia.png" height="60" class="mr-2">
                                 <img src="/assets/img/project/img/bps.png" height="60" class="mr-2">
-                                <img src="/assets/img/project/img/desacantik.png" height="70" class="mr-2">
+                                <img src="/assets/img/project/img/desacantik.png" height="60" class="mr-2">
                             </div>
                         </div>
                         <div class="col-12 col-lg-6">

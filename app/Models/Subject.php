@@ -11,4 +11,9 @@ class Subject extends Model
     protected $guarded = [];
     protected $table = 'subject';
     public $timestamps = false;
+
+    public function indicators()
+    {
+        return $this->hasMany(Indicator::class, 'subject_id', 'id');
+    }
 }

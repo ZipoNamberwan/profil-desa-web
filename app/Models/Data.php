@@ -10,5 +10,4 @@ class Data extends Model
     use HasFactory;
     protected $guarded = [];
     protected $table = 'data';
-    public $timestamps = false;
 }

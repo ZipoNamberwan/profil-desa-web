@@ -52,6 +52,7 @@ class IndicatorController extends Controller
             'subject_id' => $request->subject,
             'period_id' => $request->period,
             'row_id' => $request->row,
+            'source' => $request->source,
         ];
         if ($request->characteristic != null) {
             $array['characteristic_id'] = $request->characteristic;
@@ -180,6 +181,7 @@ class IndicatorController extends Controller
             'subject_id' => $request->subject,
             'period_id' => $request->period,
             'row_id' => $request->row,
+            'source' => $request->source,
         ];
         if ($request->characteristic != null) {
             $array['characteristic_id'] = $request->characteristic;

@@ -534,6 +534,7 @@ class MasterSeeder extends Seeder
             'period_id' => $tahunan->id,
             'subject_id' => 1,
             'unit_id' => 1,
+            'source' => 'Data Desa',
         ]);
         Indicator::create([
             'name' => 'Jumlah Penduduk Menurut RT RW dan Jenis Kelamin di Desa Pajurangan',
@@ -542,6 +543,7 @@ class MasterSeeder extends Seeder
             'period_id' => $triwulanan->id,
             'subject_id' => 1,
             'unit_id' => 1,
+            'source' => 'Data Desa',
         ]);
         Indicator::create([
             'name' => 'Jumlah Penduduk Menurut Kelompok Umur dan Jenis Kelamin di Desa Pajurangan',
@@ -550,6 +552,7 @@ class MasterSeeder extends Seeder
             'period_id' => $tahunan->id,
             'subject_id' => 1,
             'unit_id' => 1,
+            'source' => 'Data Desa',
         ]);
         Indicator::create([
             'name' => 'Jumlah Penduduk Menurut Pendidikan dan Jenis Kelamin di Desa Pajurangan',
@@ -558,6 +561,7 @@ class MasterSeeder extends Seeder
             'period_id' => $tahunan->id,
             'subject_id' => 1,
             'unit_id' => 1,
+            'source' => 'Data Desa',
         ]);
         Indicator::create([
             'name' => 'Jumlah Sarana Kesehatan di Desa Pajurangan',
@@ -566,6 +570,7 @@ class MasterSeeder extends Seeder
             'period_id' => $tahunan->id,
             'subject_id' => 3,
             'unit_id' => null,
+            'source' => 'Survei Potensi Desa BPS Kabupaten Probolinggo',
         ]);
         Indicator::create([
             'name' => 'Jumlah Sarana Pendidikan di Desa Pajurangan',
@@ -574,6 +579,7 @@ class MasterSeeder extends Seeder
             'period_id' => $tahunan->id,
             'subject_id' => 2,
             'unit_id' => null,
+            'source' => 'Survei Potensi Desa BPS Kabupaten Probolinggo',
         ]);
         Indicator::create([
             'name' => 'Jumlah Koperasi di Desa Pajurangan',
@@ -582,6 +588,7 @@ class MasterSeeder extends Seeder
             'period_id' => $tahunan->id,
             'subject_id' => 4,
             'unit_id' => null,
+            'source' => 'Survei Potensi Desa BPS Kabupaten Probolinggo',
         ]);
 
         foreach (Indicator::all() as $p) {

@@ -15,4 +15,5 @@ class Period extends Model
     public function items()
     {
         return $this->hasMany(PeriodValue::class, 'period_id', 'id');
-    }}
+    }
+}

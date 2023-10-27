@@ -23,7 +23,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontendController::class, 'index']);
-Route::get('/indicator/{id}', [FrontendController::class, 'show']);
+Route::get('/subject/{id}', [FrontendController::class, 'show']);
+Route::get('/indicator/{id}', [FrontendController::class, 'showIndicator']);
 
 Route::middleware('auth')->group(function () {
 

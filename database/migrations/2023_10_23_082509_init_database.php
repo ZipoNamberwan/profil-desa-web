@@ -72,6 +72,8 @@ return new class extends Migration
             $table->foreignId('period_id')->constrained('period');
             $table->foreignId('row_id')->constrained('row');
             $table->foreignId('unit_id')->nullable()->constrained('unit');
+            $table->string('source')->nullable();
+            $table->integer('view')->default(0);
         });
 
         Schema::create('year', function (Blueprint $table) {
@@ -84,6 +86,7 @@ return new class extends Migration
             $table->id();
             $table->string('code')->unique()->nullable();
             $table->string('value');
+            $table->timestamps();
         });
     }
 
