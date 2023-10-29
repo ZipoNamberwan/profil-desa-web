@@ -141,34 +141,6 @@ class MasterSeeder extends Seeder
             'characteristic_id' => $jeniskelamin->id,
         ]);
 
-        $pendidikan = Characteristic::create([
-            'name' => 'Pendidikan',
-        ]);
-        CharacteristicValue::create([
-            'name' => '< SD Sederajat',
-            'characteristic_id' => $pendidikan->id,
-        ]);
-        CharacteristicValue::create([
-            'name' => 'SD Sederajat',
-            'characteristic_id' => $pendidikan->id,
-        ]);
-        CharacteristicValue::create([
-            'name' => 'SMP Sederajat',
-            'characteristic_id' => $pendidikan->id,
-        ]);
-        CharacteristicValue::create([
-            'name' => 'SMA Sederajat',
-            'characteristic_id' => $pendidikan->id,
-        ]);
-        CharacteristicValue::create([
-            'name' => 'Diploma Sederajat',
-            'characteristic_id' => $pendidikan->id,
-        ]);
-        CharacteristicValue::create([
-            'name' => 'S1/S2/S3 Sederajat',
-            'characteristic_id' => $pendidikan->id,
-        ]);
-
         foreach (Characteristic::all() as $p) {
             $p->update([
                 'code' => sprintf("%03d", $p->id),
@@ -255,6 +227,30 @@ class MasterSeeder extends Seeder
         RowValue::create([
             'name' => 'Rt 18 Rw 01 Dusun Pesisir',
             'row_id' => $area->id,
+        ]);
+
+        $pendidikan = Row::create([
+            'name' => 'Pendidikan',
+        ]);
+        RowValue::create([
+            'name' => 'SD Sederajat',
+            'row_id' => $pendidikan->id,
+        ]);
+        RowValue::create([
+            'name' => 'SMP Sederajat',
+            'row_id' => $pendidikan->id,
+        ]);
+        RowValue::create([
+            'name' => 'SMA Sederajat',
+            'row_id' => $pendidikan->id,
+        ]);
+        RowValue::create([
+            'name' => 'Diploma I/II/III',
+            'row_id' => $pendidikan->id,
+        ]);
+        RowValue::create([
+            'name' => 'S1/S2/S3',
+            'row_id' => $pendidikan->id,
         ]);
 
         $kelompok = Row::create([
@@ -541,7 +537,7 @@ class MasterSeeder extends Seeder
             'name' => 'Jumlah Penduduk Menurut RT RW dan Jenis Kelamin di Desa Pajurangan',
             'row_id' => $area->id,
             'characteristic_id' => $jeniskelamin->id,
-            'period_id' => $triwulanan->id,
+            'period_id' => $tahunan->id,
             'subject_id' => 1,
             'unit_id' => 1,
             'source' => 'Data Desa',

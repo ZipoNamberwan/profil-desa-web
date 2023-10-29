@@ -34,6 +34,7 @@ class SubjectController extends Controller
 
         $subject = Subject::create([
             'name' => $request->name,
+            'icon' => '/assets/img/project/img/kependudukan.png',
         ]);
 
         $subject->update([

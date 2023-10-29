@@ -154,7 +154,7 @@ class DataController extends Controller
         for ($x = 0; $x < count($rows); $x++) {
             $movingcol = $startcol;
             for ($y = 0; $y < $totalcol; $y++) {
-                $value = $activeWorksheet->getCell($movingcol . ($x + $startrow))->getValue();
+                $value = $activeWorksheet->getCell($movingcol . ($x + $startrow))->getCalculatedValue();
 
                 if ($value != null && $value != '') {
                     $charcode = '000';
