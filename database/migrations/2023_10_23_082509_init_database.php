@@ -94,6 +94,16 @@ return new class extends Migration
             $table->id();
             $table->integer('number');
         });
+
+        Schema::create('message', function (Blueprint $table) {
+            $table->id();
+            $table->string('sender');
+            $table->string('contact_number');
+            $table->string('email');
+            $table->string('message');
+            $table->boolean('has_red')->default(false);
+            $table->timestamps();
+        });
     }
 
     /**

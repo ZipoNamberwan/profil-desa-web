@@ -34,14 +34,14 @@
                     <div class="collapse navbar-collapse navbar-offcanvas" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto text-header">
                             <li class="nav-item">
-                                <a class="nav-link" href="/frontend/sektoral" class="nav-link">Website Desa</a>
+                                <a class="nav-link" href="/web-desa" target="_blank" class="nav-link">Website Desa</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/frontend/dataset" class="nav-link">Kontak Kami</a>
+                                <a href="/contact" target="_blank" class="nav-link">Kontak Kami</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="/frontend/organisasi" class="nav-link">Statistik</a>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
                                 <a href="/login" target="_blank" class="nav-link">Admin</a>
                             </li>
@@ -134,7 +134,7 @@
     </div> -->
 
     <div class="feedback-outer">
-        <a href="/frontend/dataset/request" class="feedback" data-toggle="modal" data-target="#modalDrawer">
+        <a href="/contact" class="feedback">
             <img src="/assets/img/project/img/dataset-coni.png" alt="Image Dataset Suggestion" />
         </a>
     </div>

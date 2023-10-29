@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Data;
 use App\Models\Indicator;
+use App\Models\Message;
 use App\Models\PeriodValue;
 use App\Models\Subject;
 use App\Models\Visitor;
@@ -226,5 +227,34 @@ class FrontendController extends Controller
     public function download($id)
     {
         dd(url('/'));
+    }
+
+    public function contact()
+    {
+        return view('frontend/contact-us');
+    }
+
+    public function saveMessage(Request $request)
+    {
+        $request->validate([
+            'sender' => 'required',
+            'contact_number' => 'required',
+            'email' => 'required',
+            'message' => 'required',
+        ]);
+
+        Message::create([
+            'sender' => $request->sender,
+            'contact_number' => $request->contact_number,
+            'email' => $request->email,
+            'message' => $request->message,
+        ]);
+
+        return redirect('/')->with('success-create', 'Pesan telah dikirim. Petugas kami akan segera membalas pesan Anda, pastikan alamat email dan no HP dalam keadaan aktif...');
+    }
+
+    public function toWebDesa()
+    {
+        return 'Redirect ke Website Desa Pajurangan...';
     }
 }

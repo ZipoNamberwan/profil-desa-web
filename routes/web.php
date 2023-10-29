@@ -23,6 +23,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontendController::class, 'index']);
+Route::get('/contact', [FrontendController::class, 'contact']);
+Route::get('/web-desa', [FrontendController::class, 'toWebDesa']);
+Route::post('/contact', [FrontendController::class, 'saveMessage']);
 Route::get('/subject', [FrontendController::class, 'show']);
 Route::get('/indicator/{id}', [FrontendController::class, 'showIndicator']);
 Route::post('/indicator/{id}', [FrontendController::class, 'download']);

@@ -42,7 +42,7 @@ is-transparent
                     <div class="search-global-inner">
                         <form action="/subject?&search=" method="get" class="h-100">
                             <div class="input-group autocomplete-box">
-                                <input id="search" name="search" type="text" class="form-control input-search search-input-text" placeholder="Masukkan Kata Pencarian">
+                                <input required id="search" name="search" type="text" class="form-control input-search search-input-text" placeholder="Masukkan Kata Pencarian">
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                             </div>
                         </form>
@@ -282,5 +282,15 @@ is-transparent
 @endsection
 
 @section('script')
+
+@if (session('success-edit') || session('success-create'))
+<script>
+    Swal.fire({
+        title: 'Sukses',
+        text: '{{ session("success-create") }}',
+        icon: 'success',
+    });
+</script>
+@endif
 
 @endsection

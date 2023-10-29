@@ -64,7 +64,7 @@
                             <div class="row h-100">
                                 <div class="col-md-12">
                                     <div class="input-group h-100">
-                                        <input type="text" name="search" value="{{$keyword}}" class="form-control h-100 border-0" placeholder="Masukkan Kata Pencarian">
+                                        <input required type="text" name="search" value="{{$keyword}}" class="form-control h-100 border-0" placeholder="Masukkan Kata Pencarian">
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                                     </div>
                                 </div>
