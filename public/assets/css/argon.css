@@ -21364,8 +21364,9 @@ textarea[resize='horizontal'] {
 .table td,
 .table th {
     font-size: .8125rem;
-    /* word-wrap: break-word; */
-    white-space: nowrap !important;
+    word-wrap: break-word;
+    /* white-space: nowrap !important; */
+    /* wrap table di sini cari di sini*/
 }
 
 .table.align-items-center td,

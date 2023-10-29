@@ -71,6 +71,9 @@
                             <tr>
                                 <th>No</th>
                                 <th>Indikator</th>
+                                <th>Judul Baris</th>
+                                <th>Karakteristik</th>
+                                <th>Periode</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -118,6 +121,21 @@
                 "responsivePriority": 2,
                 "width": "5%",
                 "data": "name",
+            },
+            {
+                "responsivePriority": 2,
+                "width": "5%",
+                "data": "row",
+            },
+            {
+                "responsivePriority": 2,
+                "width": "5%",
+                "data": "characteristic",
+            },
+            {
+                "responsivePriority": 2,
+                "width": "5%",
+                "data": "period",
             },
             {
                 "responsivePriority": 4,

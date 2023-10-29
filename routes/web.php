@@ -33,7 +33,7 @@ Route::get('/indicator/chart/{id}/{year}/{period?}', [FrontendController::class,
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/home', [RowController::class, 'index']);
+    Route::get('/home', [IndicatorController::class, 'index']);
 
     Route::get('/rows/data', [RowController::class, 'getData']);
     Route::resource('rows', RowController::class);

@@ -43,20 +43,20 @@
                         <div class="table-responsive py-4">
                             <table class="table">
                                 <thead class="thead-light">
-                                    <tr>
+                                    <tr class="nowrap">
                                         <th style="vertical-align: middle !important;" class="text-center" @if($characteristics !=null) rowspan="3" @else rowspan="2" @endif>{{$headerrow}}</th>
                                         @foreach($years as $year)
                                         <th class="text-center" colspan="{{$yearcolspan}}">{{$year->name}}</th>
                                         @endforeach
                                     </tr>
-                                    <tr>
+                                    <tr class="nowrap">
                                         @foreach($years as $year)
                                         @foreach($periods as $period)
                                         <th style="vertical-align: middle !important;" class="text-center" colspan="{{$periodcolspan}}">{{$period->name}}</th>
                                         @endforeach
                                         @endforeach
                                     </tr>
-                                    <tr>
+                                    <tr class="nowrap">
                                         @foreach($years as $year)
                                         @foreach($periods as $period)
                                         @if($characteristics != null) @foreach($characteristics as $characteristic)
@@ -69,7 +69,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach($data as $row)
-                                    <tr>
+                                    <tr class="nowrap">
                                         @foreach($row as $cell)
                                         <td style="vertical-align: middle !important;" class="text-center">{{$cell}}</td>
                                         @endforeach

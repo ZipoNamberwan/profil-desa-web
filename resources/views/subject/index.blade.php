@@ -71,6 +71,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Subjek</th>
+                                <th>Jumlah Dataset</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -118,6 +119,10 @@
                 "responsivePriority": 2,
                 "width": "5%",
                 "data": "name",
+            },            {
+                "responsivePriority": 2,
+                "width": "2%",
+                "data": "num_indicator",
             },
             {
                 "responsivePriority": 4,

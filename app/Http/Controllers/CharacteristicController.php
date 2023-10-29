@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Utilities;
 use App\Models\Characteristic;
 use App\Models\CharacteristicValue;
 use Illuminate\Http\Request;
@@ -156,6 +157,7 @@ class CharacteristicController extends Controller
             $characteristicData["index"] = $i;
             $characteristicData["name"] = $characteristic->name;
             $characteristicData["items_count"] = count($characteristic->items);
+            $characteristicData["items"] = Utilities::getSentenceFromArray($characteristic->items->pluck('name')->toArray(), '; ', '; ');
             $characteristicData["id"] = $characteristic->id;
             $characteristicsArray[] = $characteristicData;
             $i++;

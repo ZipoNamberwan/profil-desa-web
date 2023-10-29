@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Utilities;
 use App\Models\Row;
 use App\Models\RowValue;
 use Illuminate\Http\Request;
@@ -155,7 +156,7 @@ class RowController extends Controller
             $rowData = array();
             $rowData["index"] = $i;
             $rowData["name"] = $row->name;
-            $rowData["items_count"] = count($row->items);
+            $rowData["items"] = Utilities::getSentenceFromArray($row->items->pluck('name')->toArray(), '; ', '; ');
             $rowData["id"] = $row->id;
             $rowsArray[] = $rowData;
             $i++;

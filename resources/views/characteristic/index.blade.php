@@ -69,10 +69,10 @@
                     <table class="table" id="datatable-id" width="100%">
                         <thead class="thead-light">
                             <tr>
-                                <th>No</th>
-                                <th>Karakteristik</th>
-                                <th>Jumlah Item</th>
-                                <th>Aksi</th>
+                                <th style="white-space: nowrap !important;">No</th>
+                                <th style="white-space: nowrap !important;">Karakteristik</th>
+                                <th style="white-space: nowrap !important;">Item</th>
+                                <th style="white-space: nowrap !important;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -123,7 +123,7 @@
             {
                 "responsivePriority": 2,
                 "width": "5%",
-                "data": "items_count",
+                "data": "items",
             },
             {
                 "responsivePriority": 4,

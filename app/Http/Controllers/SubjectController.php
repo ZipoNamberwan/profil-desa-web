@@ -120,6 +120,7 @@ class SubjectController extends Controller
             $subjectData = array();
             $subjectData["index"] = $i;
             $subjectData["name"] = $subject->name;
+            $subjectData["num_indicator"] = count($subject->indicators);
             $subjectData["id"] = $subject->id;
             $subjectsArray[] = $subjectData;
             $i++;

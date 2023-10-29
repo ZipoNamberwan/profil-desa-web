@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Utilities;
 use App\Models\Period;
 use App\Models\PeriodValue;
 use Illuminate\Http\Request;
@@ -155,7 +156,7 @@ class PeriodController extends Controller
             $periodData = array();
             $periodData["index"] = $i;
             $periodData["name"] = $period->name;
-            $periodData["items_count"] = count($period->items);
+            $periodData["items"] = Utilities::getSentenceFromArray($period->items->pluck('name')->toArray(), '; ', '; ');
             $periodData["id"] = $period->id;
             $periodsArray[] = $periodData;
             $i++;

@@ -236,6 +236,9 @@ class IndicatorController extends Controller
             $indicatorData = array();
             $indicatorData["index"] = $i;
             $indicatorData["name"] = $indicator->name;
+            $indicatorData["row"] = $indicator->row->name;
+            $indicatorData["period"] = $indicator->period->name;
+            $indicatorData["characteristic"] = $indicator->characteristic != null ? $indicator->characteristic->name : '-';
             $indicatorData["id"] = $indicator->id;
             $indicatorsArray[] = $indicatorData;
             $i++;

@@ -71,7 +71,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Judul Baris</th>
-                                <th>Jumlah Item</th>
+                                <th>Item</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -123,7 +123,7 @@
             {
                 "responsivePriority": 2,
                 "width": "5%",
-                "data": "items_count",
+                "data": "items",
             },
             {
                 "responsivePriority": 4,
