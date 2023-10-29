@@ -89,6 +89,11 @@ return new class extends Migration
             $table->string('value');
             $table->timestamps();
         });
+
+        Schema::create('visitor', function (Blueprint $table) {
+            $table->id();
+            $table->integer('number');
+        });
     }
 
     /**

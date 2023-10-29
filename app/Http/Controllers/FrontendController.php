@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Data;
 use App\Models\Indicator;
+use App\Models\PeriodValue;
 use App\Models\Subject;
+use App\Models\Visitor;
 use App\Models\Year;
 use Illuminate\Http\Request;
 
@@ -18,11 +20,14 @@ class FrontendController extends Controller
         $subjects = Subject::all();
         $total_indicator = count(Indicator::all());
         $total_data = count(Data::all());
+        $visitor = Visitor::find(1);
+        $visitor->update(['number' => ($visitor->number + 1)]);
 
         return view('frontend/home', [
             'subjects' => $subjects,
             'total_indicator' => $total_indicator,
             'total_data' => $total_data,
+            'visitor' => $visitor,
         ]);
     }
 
@@ -45,11 +50,30 @@ class FrontendController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
+        if ($request->subject == null && $request->search == null) {
+            abort(404);
+        }
+
         $subjects = Subject::all();
-        $currentsubject = Subject::find($id);
-        return view('frontend/indicator-list', ['subjects' => $subjects, 'currentsubject' => $currentsubject]);
+        $currentsubject = null;
+        $hasSubject = false;
+        $indicatorFound = 0;
+        $indicators = null;
+        $keyword = $request->search;
+        if ($request->subject != null) {
+            $currentsubject = Subject::find($request->subject);
+            $hasSubject = true;
+            $indicators = $currentsubject->indicators;
+        }
+        if ($request->search != null) {
+            $indicators = Indicator::where('name', 'like', '%' . strtolower($request->search) . '%')->get();
+        }
+
+        $indicatorFound = count($indicators);
+
+        return view('frontend/indicator-list', ['keyword' => $keyword, 'indicators' => $indicators, 'indicatorFound' => $indicatorFound, 'subjects' => $subjects, 'currentsubject' => $currentsubject, 'hasSubject' => $hasSubject,]);
     }
 
     public function showIndicator($id)
@@ -106,10 +130,12 @@ class FrontendController extends Controller
 
         $yearsentence = '';
         if (count($yearsArray) > 1) {
-            $yearsentence = $yearsArray[0]->name . ' - ' . $yearsArray[count($yearsArray) - 1]->name;
+            $yearsentence = $yearsArray[0]->name . ' - ' . end($yearsArray)->name;
         } else if (count($yearsArray) == 1) {
             $yearsentence = $yearsArray[0]->name;
         }
+
+        $recommendationIndicators = Indicator::where('id', '!=', $id)->where('subject_id', '=', $indicator->subject->id)->get();
 
         return view('frontend/indicator-detail', [
             'indicator' => $indicator,
@@ -122,6 +148,9 @@ class FrontendController extends Controller
             'characteristics' => $characteristics,
             'hasData' => $hasData,
             'yearsentence' => $yearsentence,
+            'currentyear' => end($yearsArray),
+            'currentperiod' => $periods[0],
+            'recommendation' => $recommendationIndicators,
         ]);
     }
 
@@ -147,5 +176,55 @@ class FrontendController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function getChart($id, $year = 'all', $period = null)
+    {
+        $indicator = Indicator::find($id);
+        $periods = $indicator->period->items->sortBy('id', SORT_NATURAL)->values();
+        $characteristics = $indicator->characteristic != null ? $indicator->characteristic->items->sortBy('id', SORT_NATURAL)->values() : null;
+        $rows = $indicator->row->items->sortBy('id', SORT_NATURAL)->values();
+        $characteristicitemcount = $indicator->characteristic != null ? count($indicator->characteristic->items) : 1;
+
+        $yearsArray = [];
+        $years = Year::all()->sortBy('id', SORT_NATURAL)->values();
+        foreach ($years as $y) {
+            $data = Data::where('code', 'like', $indicator->code . '%' . $y->code)->get();
+            if (count($data) > 0) {
+                $yearsArray[] = $y;
+            }
+        }
+
+        if ($year == 'all') {
+            $year = end($yearsArray)->id;
+        }
+        if ($period == null) {
+            $period = $periods[0]->id;
+        }
+
+        for ($z = 0; $z < $characteristicitemcount; $z++) {
+            $charcode = '000';
+            $charname = 'Series-1';
+            if ($characteristics != null) {
+                $charcode = $characteristics[$z]->code;
+                $charname = $characteristics[$z]->name;
+            }
+            $rowarray = [];
+
+            for ($x = 0; $x < count($rows); $x++) {
+                $code = $indicator->code . $rows[$x]->code . $charcode . PeriodValue::find($period)->code . Year::find($year)->code;
+                $data = Data::where('code', 'like', $code)->get()->first()->value;
+                $rowarray[] = (float) $data;
+            }
+
+            $dataarray[] = ['name' => $charname, 'data' => $rowarray];
+        }
+
+        return ['xAxis' => $rows->pluck('name'), 'data' => $dataarray];
+    }
+
+    public function download($id)
+    {
+        dd(url('/'));
     }
 }

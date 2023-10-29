@@ -43,8 +43,8 @@
                     <h5 class="mb-2 px-3 text-app-secondary" style="margin-left:30px">Kategori</h5>
                     <ul class="list-unstyled mr-4">
                         @foreach($subjects as $subject)
-                        <li class="side-topic-item @if($currentsubject->id == $subject->id) is-active @endif">
-                            <a href="/subject/{{$subject->id}}" class="fs-7">
+                        <li class="side-topic-item @if($hasSubject) @if($currentsubject->id == $subject->id) is-active @endif @endif">
+                            <a href="/subject?&subject={{$subject->id}}" class="fs-7">
                                 <figure class="icon m-0 flex-none">
                                     <img src="{{$subject->icon}}" alt="" />
                                 </figure>
@@ -60,21 +60,24 @@
             <div class="dataset-content flex-grow-1">
                 <div class="position-relative" style="top: -70px;">
                     <div class="border rounded-lg mb-2 bg-white" style="height: 55px;">
-                        <form action="/frontend/dataset" method="get" class="h-100">
+                        <form action="/subject?&search=" method="get" class="h-100">
                             <div class="row h-100">
                                 <div class="col-md-12">
                                     <div class="input-group h-100">
-                                        <input type="text" name="judul" value="" class="form-control h-100 border-0" placeholder="Masukkan Kata Pencarian">
+                                        <input type="text" name="search" value="{{$keyword}}" class="form-control h-100 border-0" placeholder="Masukkan Kata Pencarian">
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                                     </div>
                                 </div>
-
                             </div>
                         </form>
                     </div>
 
                     <div class="col-md-12 mb-2" style="color: #f97316;">
-                        @if(count($currentsubject->indicators)>0) {{count($currentsubject->indicators)}} Indikator Ditemukan Pada Kategori @else Belum Ada Indikator pada Kategori @endif {{$currentsubject->name}}
+                        @if($hasSubject)
+                        @if($indicatorFound>0) {{$indicatorFound}} Dataset Ditemukan pada Kategori @else Belum Ada Dataset pada Kategori @endif {{$currentsubject->name}}
+                        @else
+                        @if($indicatorFound>0) {{$indicatorFound}} Dataset Ditemukan @else Dataset Tidak Ditemukan @endif
+                        @endif
                     </div>
                     <div class="mb-4 d-lg-none">
                         <div class="d-flex align-items-center">
@@ -82,11 +85,11 @@
                             <div class="flex-grow-1">
                                 <div class="dropdown w-100">
                                     <button class="btn btn-outline-secondary btn-sm w-100" type="button" data-toggle="dropdown" aria-expanded="false">
-                                        {{$currentsubject->name}} <i class="float-right fas fa-arrow-down"></i>
+                                        @if($hasSubject) {{$currentsubject->name}} @else Pilih Kategori @endif <i class="float-right fas fa-arrow-down"></i>
                                     </button>
                                     <div class="dropdown-menu w-100">
                                         @foreach($subjects as $subject)
-                                        <a class="dropdown-item fs-7 " href="/subject/{{$subject->id}}">
+                                        <a class="dropdown-item fs-7 " href="/subject?&subject={{$subject->id}}">
                                             {{$subject->name}}
                                         </a>
                                         @endforeach
@@ -97,7 +100,7 @@
                     </div>
 
                     <div class="dataset-list mb-4">
-                        @foreach($currentsubject->indicators as $indicator)
+                        @foreach($indicators as $indicator)
                         <a href="/indicator/{{$indicator->id}}" class="dataset-item">
                             <figure class="dataset-item__img m-0 flex-none">
                                 <img src="{{$indicator->subject->icon}}" alt="" />
@@ -190,282 +193,4 @@
 
 @section('script')
 
-<script>
-    var _route = "/device/fingerprint";
-</script>
-<script type="text/javascript" src="/assets/img/project/css/device.js"></script>
-<script src="/assets/img/project/css/js.cookie.min.js"></script>
-<script src="/assets/img/project/css/jquery.min.js"></script>
-<script src="/assets/img/project/css/popper.min.js"></script>
-<script src="/assets/img/project/css/bootstrap.min.js"></script>
-<script src="/assets/img/project/css/main.js"></script>
-<script src="/assets/img/project/css/slick.js"></script>
-<script src="/assets/img/project/css/select2.js"></script>
-<script src="/assets/img/project/css/sweetalert2.all.min.js"></script>
-<script src="/assets/img/project/css/highcarts.js"></script>
-<script src="/assets/img/project/css/exporting.js"></script>
-<script src="/assets/img/project/css/data.js"></script>
-<script src="/assets/img/project/css/accessibility.js"></script>
-<script src="/assets/img/project/css/leaflet.js"></script>
-<script src="/assets/img/project/css/air.js"></script>
-<script src="https://kit.fontawesome.com/8031cd8b80.js" crossorigin="anonymous"></script>
-
-<!-- <script>
-    function observeSuggestion() {
-        const footerElement = document.querySelector('footer');
-        const suggestionElement = document.querySelector('.feedback-outer');
-        const footerElementHeight = footerElement.getBoundingClientRect().height;
-        const optionsIntersection = {
-            root: null,
-            threshold: 0,
-            rootMargin: `-${footerElementHeight / 2}px`
-        };
-
-        const suggestionObserver = new IntersectionObserver((entries) => {
-            const [entry] = entries;
-            if (!entry.isIntersecting) {
-                suggestionElement.style.bottom = 'calc(36px + 0.5rem)';
-            } else {
-                suggestionElement.style.bottom = `${footerElementHeight + 15}px`;
-            }
-        }, optionsIntersection);
-        suggestionObserver.observe(footerElement);
-    }
-    observeSuggestion();
-
-    $(function() {
-        Src.Init();
-
-        const SHOWN_CONSTRUCTION = 'od_jatim_construction';
-        $('#infoConstruction .btn-close-construction').on('click', function() {
-            if (Cookies.get(SHOWN_CONSTRUCTION)) {
-                return;
-            }
-            Cookies.set(SHOWN_CONSTRUCTION, true, {
-                expires: 1,
-                path: '/'
-            });
-        });
-
-        if (!Cookies.get(SHOWN_CONSTRUCTION)) {
-            $('#infoConstruction').modal('show');
-        }
-    });
-</script>
-<script>
-    $('.slider').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        responsive: [{
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
-                }
-            }
-        ],
-
-        prevArrow: "<button type='button' class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
-        nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>"
-    });
-</script>
-<script>
-    $('.slider-notplay').slick({
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        responsive: [{
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
-                }
-            }
-        ],
-
-        prevArrow: "<button type='button' class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
-        nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>"
-    });
-</script>
-
-<script>
-    $('.slider-infographics').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: true,
-        arrows: false,
-        autoplay: false,
-        autoplaySpeed: 2500,
-    });
-</script>
-
-<script>
-    $('.slider-notplay3').slick({
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [{
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
-                }
-            }
-        ],
-
-        prevArrow: "<button type='button' class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
-        nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>"
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        $(".select21").select2();
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $(".select2").select2({
-            allowClear: true,
-
-        });
-    });
-</script>
-
-<script type="text/javascript">
-    $(function() {
-
-        $('body').on('show.bs.modal', '.modal.modal-async', function(event) {
-            $(this).find(".modal-content").load(event.relatedTarget.href);
-        });
-
-        $('body').on('hidden.bs.modal', '.modal.modal-async', function(event) {
-            const markup = `
-                <div class="d-flex align-items-center justify-content-center h-100">
-                    <img src="/bundles/greenadmin/img/loading.gif" style="width: 30px" />
-                </div>
-            `;
-            $(this).find(".modal-content").html(markup);
-        });
-    });
-</script>
-
-<script>
-    function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-
-    // Get the element with id="defaultOpen" and click on it
-    // document.getElementById("defaultOpen").click();
-</script>
-
-<script>
-    /* When the user clicks on the button, 
-	toggle between hiding and showing the dropdown content */
-    function dropDown() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
-
-<script>
-</script>
-<script>
-    jQuery(document).ready(function($) {
-        $('.search-input-text').on('keyup click', function() {
-            var value = $('.search-input-text').val();
-            if ($('.autocomplete-items').length || !value) {
-                $('.autocomplete-items').remove();
-            }
-            if (value) {
-                $.ajax({
-                    type: "GET",
-                    url: '/frontend/gsearch' + '?key=' + value,
-                    success: function(r) {
-                        if ($('.autocomplete-items').length) {
-                            $('.autocomplete-items').remove();
-                        }
-                        var data = r;
-                        // alert(data.length);
-                        $('.autocomplete-box').append('<div id="autocomplete-list" class="autocomplete-items"></div>');
-                        if (data.length == 0) {
-                            var url = "/frontend/dataset/request";
-                            $('#autocomplete-list').append('<div><a href="' + url + '" class="text-primary">-- Permohonan Data --</a></div>');
-                        } else {
-                            $.each(data, function(index, element) {
-                                var url = '';
-                                if (element.tipe == 'INFOGRAFIK') {
-                                    url = "/frontend/infografik" + '?judul=' + element.judulx;
-                                } else {
-                                    url = "/frontend/dataset" + '?judul=' + element.judulx;
-                                }
-                                $('#autocomplete-list').append('<div><a href="' + url + '">' + element.judul + '</a></div>');
-                            });
-                        }
-                    }
-                });
-                // alert(value);
-            }
-        });
-    });
-</script> -->
 @endsection

@@ -6,6 +6,7 @@ use App\Models\Characteristic;
 use App\Models\Data;
 use App\Models\Indicator;
 use App\Models\Period;
+use App\Models\PeriodValue;
 use App\Models\Row;
 use App\Models\Subject;
 use App\Models\Unit;
@@ -125,7 +126,7 @@ class IndicatorController extends Controller
 
         $yearsentence = '';
         if (count($yearsArray) > 1) {
-            $yearsentence = $yearsArray[0]->name . ' - ' . $yearsArray[count($yearsArray) - 1]->name;
+            $yearsentence = $yearsArray[0]->name . ' - ' . end($yearsArray)->name;
         } else if (count($yearsArray) == 1) {
             $yearsentence = $yearsArray[0]->name;
         }

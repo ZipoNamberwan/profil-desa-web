@@ -23,8 +23,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontendController::class, 'index']);
-Route::get('/subject/{id}', [FrontendController::class, 'show']);
+Route::get('/subject', [FrontendController::class, 'show']);
 Route::get('/indicator/{id}', [FrontendController::class, 'showIndicator']);
+Route::post('/indicator/{id}', [FrontendController::class, 'download']);
+Route::get('/indicator/chart/{id}/{year}/{period?}', [FrontendController::class, 'getChart']);
 
 Route::middleware('auth')->group(function () {
 

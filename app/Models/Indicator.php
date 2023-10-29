@@ -66,7 +66,7 @@ class Indicator extends Model
         } else if (count($yearsArray) == 1) {
             return $yearsArray[0];
         } else {
-            return $yearsArray[0] . ' - ' . $yearsArray[count($yearsArray) - 1];
+            return $yearsArray[0] . ' - ' . end($yearsArray);
         }
     }
 }

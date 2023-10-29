@@ -77,7 +77,7 @@
         <div id="feedback" class="modal modal-async fade" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div style="text-align: center"><img src="/bundles/greenadmin/img/loading.gif" style="width: 20px" /></div>
+                    <!-- <div style="text-align: center"><img src="/bundles/greenadmin/img/loading.gif" style="width: 20px" /></div> -->
                 </div>
             </div>
         </div>
@@ -139,7 +139,7 @@
         </a>
     </div>
 
-    <div class="modal modal-async fade m-drawer is-start" id="modalDrawerLeft" tabindex="-1" aria-labelledby="modalDrawerLeftLabel" data-backdrop="static" data-keyboard="false" aria-hidden="true">
+    <!-- <div class="modal modal-async fade m-drawer is-start" id="modalDrawerLeft" tabindex="-1" aria-labelledby="modalDrawerLeftLabel" data-backdrop="static" data-keyboard="false" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="d-flex align-items-center justify-content-center h-100">
@@ -156,8 +156,25 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
+
+<script src="/assets/img/project/css/js.cookie.min.js"></script>
+<script src="/assets/img/project/css/jquery.min.js"></script>
+<script src="/assets/img/project/css/popper.min.js"></script>
+<script src="/assets/img/project/css/bootstrap.min.js"></script>
+<script src="/assets/img/project/css/main.js"></script>
+<script src="/assets/img/project/css/slick.js"></script>
+<script src="/assets/img/project/css/select2.js"></script>
+<script src="/assets/img/project/css/sweetalert2.all.min.js"></script>
+<script src="/assets/img/project/css/leaflet.js"></script>
+<script src="/assets/img/project/css/air.js"></script>
+<script src="https://kit.fontawesome.com/8031cd8b80.js" crossorigin="anonymous"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 @yield('script')
 

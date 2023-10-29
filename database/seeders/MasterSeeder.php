@@ -12,6 +12,7 @@ use App\Models\RowValue;
 use App\Models\Subject;
 use App\Models\Unit;
 use App\Models\User;
+use App\Models\Visitor;
 use App\Models\Year;
 use Illuminate\Database\Seeder;
 
@@ -629,6 +630,10 @@ class MasterSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('123456')
+        ]);
+
+        Visitor::create([
+            'number' => 453
         ]);
     }
 }
