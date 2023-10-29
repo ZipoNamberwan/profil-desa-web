@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Data Desa Pajurangan</title>
-    <link rel="shortcut icon" href="/brand/icon/open-data-32x32.png" type="image/x-icon" sizes="32x32">
+    <link rel="shortcut icon" href="/assets/img/project/img/desacantikbg.png" type="image/x-icon" sizes="32x32">
 
     @yield('stylesheet')
 
@@ -43,7 +43,7 @@
                                 <a href="/frontend/organisasi" class="nav-link">Statistik</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/login" class="nav-link">Admin</a>
+                                <a href="/login" target="_blank" class="nav-link">Admin</a>
                             </li>
                             <!-- <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle  " id="infografikNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

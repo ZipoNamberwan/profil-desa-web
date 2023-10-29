@@ -74,6 +74,7 @@ return new class extends Migration
             $table->foreignId('unit_id')->nullable()->constrained('unit');
             $table->string('source')->nullable();
             $table->integer('view')->default(0);
+            $table->timestamps();
         });
 
         Schema::create('year', function (Blueprint $table) {

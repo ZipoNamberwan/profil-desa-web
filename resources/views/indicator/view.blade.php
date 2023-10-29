@@ -35,7 +35,7 @@
                 <div class="card">
                     <!-- Card header -->
                     <div class="card-header">
-                        <h3 class="mb-3">{{$indicator->name}}, {{$yearsentence}}</h3>
+                        <h3 class="mb-3">{{$indicator->name}} {{$yearsentence}}</h3>
                     </div>
                     <!-- Card body -->
                     <div class="card-body">
@@ -44,7 +44,7 @@
                             <table class="table">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th style="vertical-align: middle !important;" class="text-center" rowspan="3">{{$headerrow}}</th>
+                                        <th style="vertical-align: middle !important;" class="text-center" @if($characteristics !=null) rowspan="3" @else rowspan="2" @endif>{{$headerrow}}</th>
                                         @foreach($years as $year)
                                         <th class="text-center" colspan="{{$yearcolspan}}">{{$year->name}}</th>
                                         @endforeach
@@ -59,9 +59,10 @@
                                     <tr>
                                         @foreach($years as $year)
                                         @foreach($periods as $period)
-                                        @foreach($characteristics as $characteristic)
+                                        @if($characteristics != null) @foreach($characteristics as $characteristic)
                                         <th style="vertical-align: middle !important;" class="text-center">{{$characteristic->name}}</th>
                                         @endforeach
+                                        @endif
                                         @endforeach
                                         @endforeach
                                     </tr>

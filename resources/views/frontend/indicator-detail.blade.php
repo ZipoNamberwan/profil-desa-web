@@ -24,70 +24,69 @@
 <div class="pagebar-header is-light position-relative rounded-0" style="min-height: 290px;">
     <div class="container">
         <div class="d-flex align-items-center mb-3">
-            <a href="
-                                    /frontend/dataset
-                                " class="btn btn-outline-secondary btn-sm">
-                <i class="bi-chevron-left"></i> Kembali
+            <a href="/subject/{{$indicator->subject->id}}" class="btn btn-outline-secondary btn-sm">
+                <i class="fas fa-chevron-left"></i> Kembali
             </a>
         </div>
 
         <div class="row align-items-center">
             <div class="col">
                 <div class="border-right pr-3">
-                    <h4 class="mb-1">Data Capaian Pengelolaan DBHCHT</h4>
+                    <h4 class="mb-1">{{$indicator->name}}</h4>
                     <ul class="list-inline mb-4">
+                        @if($indicator->getLastUpdated() != '-')
                         <li class="list-inline-item">
                             <span class="text-muted">
-                                <i class="fa fa-calendar mr-1"></i>30 March 2023
+                                <i class="fa fa-calendar mr-1"></i>{{$indicator->getLastUpdated()}}
                             </span>
                         </li>
+                        @endif
                         <li class="list-inline-item">
                             <span class="text-muted">
-                                <i class="fa fa-eye mr-1"></i>421
+                                <i class="fa fa-eye mr-1"></i>{{$indicator->view}}
                             </span>
                         </li>
                     </ul>
 
+                    @if($indicator->source != null && $indicator->source != '-')
                     <div class="d-flex align-items-center">
-                        <div class="flex-none border rounded-lg" style="width: 45px;padding: 4px;">
+                        <!-- <div class="flex-none border rounded-lg" style="width: 45px;padding: 4px; mr-2">
                             <figure class="rz-ratio rz-ratio-1x1 m-0">
-
                                 <img src="/uploads/fd2cbb8fbb69b2286ee1062f2ac3af9a.png" style="object-fit: contain;">
                             </figure>
-                        </div>
-                        <div class="ml-2">
-                            <h6 class="mb-1 fs-7">Biro Perekonomian Setda Prov. Jawa Timur</h6>
-                            <p class="m-0 fs-7 line-height-sm">Ekonomi</p>
+                        </div> -->
+                        <div>
+                            <h6 class="mb-1 fs-7">Sumber: {{$indicator->source}}</h6>
+                            <p class="m-0 fs-7 line-height-sm">{{$indicator->subject->name}}</p>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
             <div class="col-12 col-lg-2">
                 <div class="dropdown w-100">
                     <button class="btn btn-outline-secondary btn-sm w-100 mb-3" type="button" data-toggle="dropdown" aria-expanded="false">
-                        <i class="bi-download mr-1"></i> Unduh
+                        <i class="fas fa-download mr-1"></i> Unduh
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item fs-7 text-black-50" href="/frontend/tfeedback/request/1633?tipe=xlsx" id="button-feedback" class="" data-toggle="modal" data-target="#feedback"> <i class="fas fa-file-excel mr-1"></i> Spreadsheet</a>
                         <a class="dropdown-item fs-7 text-black-50" href="/frontend/tfeedback/request/1633?tipe=csv" id="button-feedback" class="" data-toggle="modal" data-target="#feedback"> <i class="fas fa-file-csv mr-1"></i> CSV</a>
                         </a>
-                        <a class="dropdown-item fs-7 text-black-50" href="/api/1633" target="_blank"><i class="fas fa-gears mr-1"></i> API</a>
-                        <a class="dropdown-item fs-7 text-black-50" href="/frontend/dataset/1633/dcat" target="_blank"><i class="fas fa-gears mr-1"></i> CKAN DCAT</a>
                     </div>
                 </div>
                 <div class="dropdown w-100">
                     <button class="btn btn-outline-secondary btn-sm w-100 mb-3" type="button" data-toggle="dropdown" aria-expanded="false">
-                        <i class="bi-share mr-1"></i> Bagikan
+                        <i class="fas fa-share mr-1"></i> Bagikan
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item fs-7 text-black-50" href="https://www.facebook.com/sharer/sharer.php?u=http://opendata.jatimprov.go.id/frontend/dataset/1633/detail_dataset" target="_blank">
-                            <i class="bi-facebook mr-1"></i> Facebook
+                            <i class="fab fa-facebook mr-1"></i> Facebook
                         </a>
                         <a class="dropdown-item fs-7 text-black-50" href="https://twitter.com/intent/tweet?text=Data Capaian Pengelolaan DBHCHT&url=http://opendata.jatimprov.go.id/frontend/dataset/1633/detail_dataset" target="_blank">
-                            <i class="bi-twitter mr-1"></i> Twitter
+                            <i class="fab fa-twitter mr-1"></i> Twitter
                         </a>
                         <a class="dropdown-item fs-7 text-black-50" href="whatsapp://send?text=Data Capaian Pengelolaan DBHCHT http://opendata.jatimprov.go.id/frontend/dataset/1633/detail_dataset" target="_blank">
-                            <i class="bi-whatsapp mr-1"></i> Whatsapp
+                            <i class="fab fa-whatsapp mr-1"></i> Whatsapp
                         </a>
                     </div>
                 </div>
@@ -101,11 +100,11 @@
         <div class="container">
 
             <div class="pt-3 pb-4">
-                <div class="mb-0">
+                <!-- <div class="mb-0">
                     <h5>Deskripsi Dataset</h5>
                     <p class="mb-0">Data Pagu Alokasi Penyaluran DBHCHT Tahun 2022</p>
-                </div>
-                <div class="border-top my-4" style="border-top-width: 5px !important;"></div>
+                </div> -->
+                <!-- <div class="border-top my-4" style="border-top-width: 5px !important;"></div> -->
                 <div class="m-0">
                     <div class="app-box-card with-table mb-5">
                         <div class="app-box-card__head">
@@ -116,33 +115,43 @@
                                 <table class="table border-0">
                                     <tbody>
                                         <tr>
-                                            <td width="25%" class="text-muted">Dataset Dibuat</td>
-                                            <th>30 March 2023</th>
+                                            <td width="25%" class="text-muted">Dibuat</td>
+                                            <th>{{$indicator->getCreated()}}</th>
                                         </tr>
                                         <tr>
-                                            <td width="25%" class="text-muted">Dataset Diubah</td>
-                                            <th>30 March 2023</th>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="text-muted">Kode Dataset</td>
-                                            <th>4.01-001</th>
+                                            <td width="25%" class="text-muted">Terakhir Diupdate</td>
+                                            <th>{{$indicator->getLastUpdated()}}</th>
                                         </tr>
                                         <tr>
-                                            <td class="text-muted">Produsen</td>
-                                            <th>Biro Perekonomian Setda Prov. Jawa Timur</th>
+                                            <td class="text-muted">Sumber</td>
+                                            <th>@if($indicator->source != null && $indicator->source != '-') {{$indicator->source}} @else - @endif</th>
                                         </tr>
                                         <tr>
-                                            <td class="text-muted">Satuan Dataset</td>
-                                            <th>Dokumen</th>
+                                            <td class="text-muted">Tahun Data</td>
+                                            <th>{{$indicator->getYears()}}</th>
                                         </tr>
                                         <tr>
-                                            <td class="text-muted">Periode Dataset</td>
-                                            <th>Tahun</th>
+                                            <td class="text-muted">Kategori</td>
+                                            <th>{{$indicator->subject->name}}</th>
                                         </tr>
                                         <tr>
-                                            <td class="text-muted">Sumber Dataset</td>
-                                            <th>Internal dan Eksternal</th>
+                                            <td class="text-muted">Periode</td>
+                                            <th>{{$indicator->period->name}}</th>
+                                        </tr>
+                                        @if($indicator->chracteristic != null)
+                                        <tr>
+                                            <td class="text-muted">Karakteristik</td>
+                                            <th>{{$indicator->characteristic->name}}</th>
+                                        </tr>
+                                        @endif
+                                        <tr>
+                                            <td class="text-muted">Satuan</td>
+                                            <th> @if($indicator->unit != null)
+                                                {{$indicator->unit->name}}
+                                                @else
+                                                -
+                                                @endif
+                                            </th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -167,28 +176,48 @@
                             <div class="tab-pane fade show active" id="tabel" role="tabpanel" aria-labelledby="versi-tab">
                                 <div class="content">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered table-addt" id="table_ajax" width="100%">
-                                            <thead>
-                                                <tr>
-
-                                                    <th>periode_update</th>
-
-                                                    <th>kabupaten_kota</th>
-
-                                                    <th>pagu_alokasi</th>
-                                                </tr>
-                                                <tr>
-
-                                                    <th><input type="text" id="periode_update" data-column="0" class="search-input-text form-control"></th>
-
-                                                    <th><input type="text" id="kabupaten_kota" data-column="1" class="search-input-text form-control"></th>
-
-                                                    <th><input type="text" id="pagu_alokasi" data-column="2" class="search-input-text form-control"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                        </table>
+                                        @if($hasData)
+                                        <div class="table-responsive py-4">
+                                            <table class="table">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th style="vertical-align: middle !important;" class="text-center" @if($characteristics !=null) rowspan="3" @else rowspan="2" @endif>{{$headerrow}}</th>
+                                                        @foreach($years as $year)
+                                                        <th class="text-center" colspan="{{$yearcolspan}}">{{$year->name}}</th>
+                                                        @endforeach
+                                                    </tr>
+                                                    <tr>
+                                                        @foreach($years as $year)
+                                                        @foreach($periods as $period)
+                                                        <th style="vertical-align: middle !important;" class="text-center" colspan="{{$periodcolspan}}">{{$period->name}}</th>
+                                                        @endforeach
+                                                        @endforeach
+                                                    </tr>
+                                                    <tr>
+                                                        @foreach($years as $year)
+                                                        @foreach($periods as $period)
+                                                        @if($characteristics != null) @foreach($characteristics as $characteristic)
+                                                        <th style="vertical-align: middle !important;" class="text-center">{{$characteristic->name}}</th>
+                                                        @endforeach
+                                                        @endif
+                                                        @endforeach
+                                                        @endforeach
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($data as $row)
+                                                    <tr>
+                                                        @foreach($row as $cell)
+                                                        <td style="vertical-align: middle !important;" class="text-center">{{$cell}}</td>
+                                                        @endforeach
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        @else
+                                        Belum ada data diupload
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -291,7 +320,7 @@
                 </div>
             </div>
 
-            <div class="mt-50">
+            <!-- <div class="mt-50">
                 <h5 class="mb-3">Rekomendasi Dataset</h5>
                 <div class="dataset-list bg-white mb-4">
                     <a href="/frontend/dataset/1624/detail_dataset" class="dataset-item">
@@ -367,7 +396,7 @@
                         </div>
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
