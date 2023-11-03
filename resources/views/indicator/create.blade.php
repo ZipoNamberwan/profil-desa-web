@@ -17,8 +17,8 @@
                     <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="#"><i class="fas fa-bell"></i></a></li>
-                            <li class="breadcrumb-item"><a href="/indicators">Indikator</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Tambah Indikator</li>
+                            <li class="breadcrumb-item"><a href="/indicators">Judul Tabel</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Tambah Judul Tabel</li>
                         </ol>
                     </nav>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="card">
                     <!-- Card header -->
                     <div class="card-header">
-                        <h3 class="mb-3">Tambah Indikator</h3>
+                        <h3 class="mb-3">Tambah Judul Tabel</h3>
                     </div>
                     <!-- Card body -->
                     <div class="card-body">
@@ -43,9 +43,9 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-control-label">Subjek <span class="text-danger">*</span></label>
+                                    <label class="form-control-label">Kategori <span class="text-danger">*</span></label>
                                     <select id="subject" name="subject" class="form-control" data-toggle="select" name="subject" required>
-                                        <option value="0" disabled selected> -- Pilih Subjek -- </option>
+                                        <option value="0" disabled selected> -- Pilih Kategori -- </option>
                                         @foreach ($subjects as $subject)
                                         <option value="{{ $subject->id }}" {{ old('subject') == $subject->id ? 'selected' : '' }}>
                                             {{ $subject->name }}
@@ -61,7 +61,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-control-label" for="name">Nama Indikator<span class="text-danger">*</span></label>
+                                    <label class="form-control-label" for="name">Nama Judul Tabel<span class="text-danger">*</span></label>
                                     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="validationCustom03" value="{{ @old('name') }}">
                                     @error('name')
                                     <div class="invalid-feedback">
@@ -83,10 +83,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-control-label">Karakteristik <span class="text-danger">*</span></label>
+                                    <label class="form-control-label">Judul Kolom <span class="text-danger">*</span></label>
                                     <select id="characteristic" name="characteristic" class="form-control" data-toggle="select" name="characteristic" required>
-                                        <option value="0" disabled selected> -- Pilih Karakteristik -- </option>
-                                        <option value=""> Tidak ada Karakteristik </option>
+                                        <option value="0" disabled selected> -- Pilih Judul Kolom -- </option>
+                                        <option value=""> Tidak ada Judul Kolom </option>
                                         @foreach ($characteristics as $characteristic)
                                         <option value="{{ $characteristic->id }}" {{ old('characteristic') == $characteristic->id ? 'selected' : '' }}>
                                             {{ $characteristic->name }}

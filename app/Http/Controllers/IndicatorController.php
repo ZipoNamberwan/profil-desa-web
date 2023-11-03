@@ -68,7 +68,7 @@ class IndicatorController extends Controller
             'code' => sprintf("%03d", $indicator->id),
         ]);
 
-        return redirect('/indicators')->with('success-create', 'Indikator telah ditambah!');
+        return redirect('/indicators')->with('success-create', 'Judul Tabel telah ditambah!');
     }
 
     /**
@@ -194,7 +194,7 @@ class IndicatorController extends Controller
         $indicator = Indicator::find($id);
         $indicator->update($array);
 
-        return redirect('/indicators')->with('success-create', 'Indikator telah diubah!');
+        return redirect('/indicators')->with('success-create', 'Judul Tabel telah diubah!');
     }
 
     /**
@@ -204,7 +204,7 @@ class IndicatorController extends Controller
     {
         $indicator = Indicator::find($id);
         $indicator->delete();
-        return redirect('/indicators')->with('success-delete', 'Indikator telah dihapus!');
+        return redirect('/indicators')->with('success-delete', 'Judul Tabel telah dihapus!');
     }
 
     public function getData(Request $request)

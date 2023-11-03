@@ -67,11 +67,11 @@ return new class extends Migration
             $table->id();
             $table->string('code')->unique()->nullable();
             $table->string('name');
-            $table->foreignId('subject_id')->constrained('subject');
-            $table->foreignId('characteristic_id')->nullable()->constrained('characteristic');
-            $table->foreignId('period_id')->constrained('period');
-            $table->foreignId('row_id')->constrained('row');
-            $table->foreignId('unit_id')->nullable()->constrained('unit');
+            $table->foreignId('subject_id')->constrained('subject')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('characteristic_id')->nullable()->constrained('characteristic')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('period_id')->constrained('period')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('row_id')->constrained('row')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('unit_id')->nullable()->constrained('unit')->onUpdate('cascade')->onDelete('cascade');
             $table->string('source')->nullable();
             $table->integer('view')->default(0);
             $table->timestamps();

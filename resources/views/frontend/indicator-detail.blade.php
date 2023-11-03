@@ -141,7 +141,7 @@
                                         </tr>
                                         @if($indicator->chracteristic != null)
                                         <tr>
-                                            <td class="text-muted">Karakteristik</td>
+                                            <td class="text-muted">Judul Kolom</td>
                                             <th>{{$indicator->characteristic->name}}</th>
                                         </tr>
                                         @endif
@@ -250,7 +250,7 @@
                                     </div>
                                     <!-- @if($characteristics != null)
                                     <div class="row">
-                                        <div class="col-lg-1">Karakteristik</div>
+                                        <div class="col-lg-1">Judul Kolom</div>
                                         <div class="col-lg-3">
                                             <div style="display:flex;">
                                                 <div style="margin-left:2px ;">

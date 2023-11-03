@@ -53,9 +53,9 @@
                             <input type="hidden" id="hidden_indicator" name="hidden_indicator" @if (old('hidden_indicator')) value="{{ old('hidden_indicator') }}" @endif>
                             <div class="row">
                                 <div class="col-md-8 mb-3">
-                                    <label class="form-control-label">Indikator <span class="text-danger">*</span></label>
+                                    <label class="form-control-label">Judul Tabel <span class="text-danger">*</span></label>
                                     <select onchange="inputChange()" id="indicator" name="indicator" class="form-control" data-toggle="select" name="indicator" required>
-                                        <option value="0" disabled selected> -- Pilih Indikator -- </option>
+                                        <option value="0" disabled selected> -- Pilih Judul Tabel -- </option>
                                         @foreach ($indicators as $indicator)
                                         <option value="{{ $indicator->id }}" {{ old('indicator') == $indicator->id ? 'selected' : '' }}>
                                             {{ $indicator->name }}

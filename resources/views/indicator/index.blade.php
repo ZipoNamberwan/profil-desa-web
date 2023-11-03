@@ -15,7 +15,7 @@
                     <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="#"><i class="ni ni-active-40"></i></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Daftar Indikator</li>
+                            <li class="breadcrumb-item active" aria-current="page">Daftar Judul Tabel</li>
                         </ol>
                     </nav>
                 </div>
@@ -54,12 +54,12 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-9">
-                            <h3 class="card-title mb-2">Daftar Indikator</h3>
+                            <h3 class="card-title mb-2">Daftar Judul Tabel</h3>
                         </div>
                         <div class="col-md-3 text-right">
-                            <a href="{{url('/indicators/create')}}" class="btn btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Tambah Indikator">
+                            <a href="{{url('/indicators/create')}}" class="btn btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Tambah Judul Tabel">
                                 <span class="btn-inner--icon"><i class="fas fa-plus-circle"></i></span>
-                                <span class="btn-inner--text">Tambah Indikator</span>
+                                <span class="btn-inner--text">Tambah Judul Tabel</span>
                             </a>
                         </div>
                     </div>
@@ -70,9 +70,9 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>No</th>
-                                <th>Indikator</th>
+                                <th>Judul Tabel</th>
                                 <th>Judul Baris</th>
-                                <th>Karakteristik</th>
+                                <th>Judul Kolom</th>
                                 <th>Periode</th>
                                 <th>Aksi</th>
                             </tr>
@@ -172,7 +172,7 @@
     function deleterow($id, $name) {
         event.preventDefault();
         Swal.fire({
-            title: 'Yakin Hapus Indikator Ini?',
+            title: 'Yakin Hapus Judul Tabel Ini?',
             text: $name,
             icon: 'warning',
             showCancelButton: true,

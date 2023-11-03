@@ -58,7 +58,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/indicators">
                                 <i class="fas fa-home text-danger"></i>
-                                <span class="nav-link-text">Indikator</span>
+                                <span class="nav-link-text">Judul Tabel</span>
                             </a>
                         </li>
                     </ul>
@@ -74,7 +74,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/subjects">
                                 <i class="fas fa-id-card text-primary text-sm opacity-10"></i>
-                                <span class="nav-link-text">Subject</span>
+                                <span class="nav-link-text">Kategori</span>
                             </a>
                         </li>
                     </ul>
@@ -82,7 +82,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/characteristics">
                                 <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
-                                <span class="nav-link-text">Karakteristik</span>
+                                <span class="nav-link-text">Judul Kolom</span>
                             </a>
                         </li>
                     </ul>

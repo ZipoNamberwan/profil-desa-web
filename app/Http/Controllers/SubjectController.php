@@ -41,7 +41,7 @@ class SubjectController extends Controller
             'code' => sprintf("%03d", $subject->id),
         ]);
 
-        return redirect('/subjects')->with('success-create', 'Subjek telah ditambah!');
+        return redirect('/subjects')->with('success-create', 'Kategori telah ditambah!');
     }
 
     /**
@@ -79,7 +79,7 @@ class SubjectController extends Controller
         ]);
         $subject->update($data);
 
-        return redirect('/subjects')->with('success-create', 'Subjek telah diubah!');
+        return redirect('/subjects')->with('success-create', 'Kategori telah diubah!');
     }
 
     /**
@@ -89,7 +89,7 @@ class SubjectController extends Controller
     {
         $subject = Subject::find($id);
         $subject->delete();
-        return redirect('/subjects')->with('success-delete', 'Subjek telah dihapus!');
+        return redirect('/subjects')->with('success-delete', 'Kategori telah dihapus!');
     }
 
     public function getData(Request $request)

@@ -17,8 +17,8 @@
                     <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="#"><i class="fas fa-bell"></i></a></li>
-                            <li class="breadcrumb-item"><a href="/indicators">Indikator</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Lihat Indikator</li>
+                            <li class="breadcrumb-item"><a href="/indicators">Judul Tabel</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Lihat Judul Tabel</li>
                         </ol>
                     </nav>
                 </div>

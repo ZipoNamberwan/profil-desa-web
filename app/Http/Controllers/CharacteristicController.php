@@ -54,7 +54,7 @@ class CharacteristicController extends Controller
             ]);
         }
 
-        return redirect('/characteristics')->with('success-create', 'Karakteristik telah ditambah!');
+        return redirect('/characteristics')->with('success-create', 'Judul Kolom telah ditambah!');
     }
 
     /**
@@ -114,7 +114,7 @@ class CharacteristicController extends Controller
 
         }
 
-        return redirect('/characteristics')->with('success-create', 'Karakteristik telah diubah!');
+        return redirect('/characteristics')->with('success-create', 'Judul Kolom telah diubah!');
     }
 
     /**
@@ -124,7 +124,7 @@ class CharacteristicController extends Controller
     {
         $characteristic = Characteristic::find($id);
         $characteristic->delete();
-        return redirect('/characteristics')->with('success-delete', 'Karakteristik telah dihapus!');
+        return redirect('/characteristics')->with('success-delete', 'Judul Kolom telah dihapus!');
     }
 
     public function getData(Request $request)

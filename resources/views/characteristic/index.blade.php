@@ -15,7 +15,7 @@
                     <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="#"><i class="ni ni-active-40"></i></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Daftar Karakteristik</li>
+                            <li class="breadcrumb-item active" aria-current="page">Daftar Judul Kolom</li>
                         </ol>
                     </nav>
                 </div>
@@ -54,12 +54,12 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-9">
-                            <h3 class="card-title mb-2">Daftar Karakteristik</h3>
+                            <h3 class="card-title mb-2">Daftar Judul Kolom</h3>
                         </div>
                         <div class="col-md-3 text-right">
-                            <a href="{{url('/characteristics/create')}}" class="btn btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Tambah Karakteristik">
+                            <a href="{{url('/characteristics/create')}}" class="btn btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Tambah Judul Kolom">
                                 <span class="btn-inner--icon"><i class="fas fa-plus-circle"></i></span>
-                                <span class="btn-inner--text">Tambah Karakteristik</span>
+                                <span class="btn-inner--text">Tambah Judul Kolom</span>
                             </a>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <th style="white-space: nowrap !important;">No</th>
-                                <th style="white-space: nowrap !important;">Karakteristik</th>
+                                <th style="white-space: nowrap !important;">Judul Kolom</th>
                                 <th style="white-space: nowrap !important;">Item</th>
                                 <th style="white-space: nowrap !important;">Aksi</th>
                             </tr>
@@ -156,7 +156,7 @@
     function deleterow($id, $name) {
         event.preventDefault();
         Swal.fire({
-            title: 'Yakin Hapus Karakteristik Ini?',
+            title: 'Yakin Hapus Judul Kolom Ini?',
             text: $name,
             icon: 'warning',
             showCancelButton: true,

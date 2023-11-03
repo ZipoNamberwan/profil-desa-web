@@ -25,8 +25,8 @@
                     <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="#"><i class="fas fa-bell"></i></a></li>
-                            <li class="breadcrumb-item"><a href="/characteristics">Karakteristik</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Ubah Karakteristik</li>
+                            <li class="breadcrumb-item"><a href="/characteristics">Judul Kolom</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Ubah Judul Kolom</li>
                         </ol>
                     </nav>
                 </div>
@@ -43,7 +43,7 @@
                 <div class="card">
                     <!-- Card header -->
                     <div class="card-header">
-                        <h3 class="mb-0">Ubah Karakteristik</h3>
+                        <h3 class="mb-0">Ubah Judul Kolom</h3>
                     </div>
                     <!-- Card body -->
                     <div class="card-body">
@@ -52,7 +52,7 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-control-label" for="name">Nama Karakteristik<span class="text-danger">*</span></label>
+                                    <label class="form-control-label" for="name">Nama Judul Kolom<span class="text-danger">*</span></label>
                                     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="validationCustom03" value="{{ @old('name', $characteristic->name) }}">
                                     @error('name')
                                     <div class="invalid-feedback">

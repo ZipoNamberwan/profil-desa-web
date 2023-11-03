@@ -92,7 +92,7 @@ is-transparent
             <div class="col-12 col-lg-3 px-2">
                 <a href="#" class="box-statistic mb-3 mb-lg-0 bg-app-secondary rounded-app p-4">
                     <div class="text-light text-center h1 font-weight-bold mb-2">{{$total_indicator}}</div>
-                    <div class="text-light text-center h4">Indikator</div>
+                    <div class="text-light text-center h4">Judul Tabel</div>
                 </a>
             </div>
             <div class="col-12 col-lg-3 px-2">
